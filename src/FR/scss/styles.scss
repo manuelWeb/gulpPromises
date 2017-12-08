@@ -1,0 +1,20 @@
+$cddark: "#006737";
+// class generiques
+table {border-collapse: collapse; margin: auto; padding: 0; }
+td {font-size: 0; }
+td img {display: block; }
+img {display: block; }
+a {line-height: normal; }
+a img {border: 0; }
+
+.db{display: block;}
+.altlogo, .altgift, .altcat {font-family: Arial, sans-serif;}
+.altlogo{font-size: 36px; font-weight: bold; color: #{$cddark};}
+.altgift{font-size: 21px; font-weight: bold; color: #5B594F;}
+.altcat{text-align: right; font-size: 18px; font-weight: normal; font-style: italic; color: #222222;}
+.giftCode {color: #014CA0; font-family: Arial, Helvetica, sans-serif; font-size: 21px; }
+.navtxt {text-decoration: none; font-family: Arial, sans-serif; font-size: 14px; color: #FFFFFF;}
+.pk_title {vertical-align: middle; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 18px;}
+.pk_title a {text-decoration: none; color: #5F3712; }
+.pk_txt {vertical-align: top; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 14px;}
+.pk_txt a {text-decoration: none; color: #212121;}

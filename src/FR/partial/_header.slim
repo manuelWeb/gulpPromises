@@ -1,0 +1,27 @@
+/! header news
+- altCat_ = "Feuilletez le catalogue"
+table border==($tabborder0)
+  tr
+    td
+      table border==($tabborder0)
+        tr
+          td width==($column*12+$gutter*11) align="center"
+            a href==($cat) target="_blank"
+              img alt="" border="0" height="31" src==(($abspath == true ? $srcAbs : $srcRel)+"header_s1.jpg")
+        tr
+          td
+            table border==($tabborder0)
+              tr
+                td width=($column*9+$gutter*9) height="110"
+                  a href==($logo) target="_blank"
+                    img.altlogo alt="CHIEN, CHAT ET COMPAGNIE" border="0" src==(($abspath == true ? $srcAbs : $srcRel)+"header_s2c1.jpg")
+                td width==$column*3+$gutter*2 height="110"
+                  a href==($cat) target="_blank"
+                    img.altcat alt="" src==(($abspath == true ? $srcAbs : $srcRel)+"header_s2c2.jpg")
+        tr
+          td width==$column*12+$gutter*11
+            table border==($tabborder0) width="100%"
+              tr
+                td align="center"
+                  a href==($cat) target="_blank"
+                    img alt="" border="0" src==(($abspath == true ? $srcAbs : $srcRel)+"header_s3.jpg")

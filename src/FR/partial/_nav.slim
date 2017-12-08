@@ -1,0 +1,11 @@
+/! nav
+- navWidth = [113, 198, 92, 150, 141]
+- items = ["hygiène & soin","promenade & vêtements","jeux & loisirs","astuces & gourmandises","maison déco & jardin"]
+
+table border==($tabborder0) width==($tab2)
+  tr
+    - items.each_with_index do |item,i|
+      / - puts i
+      td align="center" style==((i < 4 ? "padding-right: 4px;" : "$srcRel"))
+        a.navtxt href==($nav[i]+$navtrack) target="_blank"
+          img src==(($abspath == true ? $srcAbs : $srcRel)+"nav_c#{i+1}.png") width="#{navWidth[i]}" height="42" border="0" alt="#{item}"

@@ -1,0 +1,51 @@
+{
+  "date": "1217",
+  "header": "Découvrez une foule d'idées, d'astuces, et d'articles bien pensés pour le bien-être <br /> de vos animaux de compagnie. Découvrez vite la collection de ce mois-ci!",
+
+  "pkX3link": {
+    "1": "test2/surMonlien/quiveutpasfonctionner",
+    "2": "https://www.chienchatetcompagnie.com/fr/astuces-gourmandises/friandises/friandise-chien-pain-d-epice/2505170.html",
+    "3": "https://www.chienchatetcompagnie.com/fr/promenade-vetements-paniers/manteaux-compagnie/pull-pere-no-l-chien-t30/2501179.html"
+  },
+  "pkX3Txt": {
+    "titre1": "Griffoir de No&euml;l chat",
+    "texte1": "Il d&eacute;core m&ecirc;me la maison : le griffoir de No&euml;l !",
+    "titre2": "Friandise pour chien pain d'&eacute;pice",
+    "texte2": "Le bonhomme en pain d&rsquo;&eacute;pice : la star de No&euml;l !",
+    "titre3": "Pull p&egrave;re No&euml;l chien : 4 tailles",
+    "texte3": "Une protection belle et chaude pour votre compagnon !"
+  },
+
+  "pkX3-ligne2Link": {
+    "1": "test",
+    "2": "https://www.chienchatetcompagnie.com/fr/hygiene-soin/antiparasites/pipettes-stop-parasites-chiens-15kg/2471175.html",
+    "3": "https://www.chienchatetcompagnie.com/fr/hygiene-soin/antiparasites/vermi-pure-chaton-chat/2435170.html"
+  },
+  "pkX3-ligne2Txt": {
+    "titre1": "Pipettes stop parasites chats",
+    "texte1": "Pour faire barrage aux parasites !",
+    "titre2": "Pipettes stop parasites chiens &lt;15 kg",
+    "texte2": "Immobilise les puces et les poux",
+    "titre3": "Pipettes stop parasites chiens 15-30 kg",
+    "texte3": "Agit sur les parasites adultes, les larves et les oeuf - <br/> Action 2 mois"
+  },
+
+  "pkX2link": {
+    "1": "https://www.chienchatetcompagnie.com/fr/boutique/rayon_evenement.aspx?pg=0&evenement_id=793",
+    "2": "https://www.chienchatetcompagnie.com/fr/promenade-vetements-paniers/tapis-paniers/plaid-chien-100-x-70-cm/2527174.html"
+  },
+  "pkX2Txt": {
+    "titre1": "Calendrier de l'avent chien ou chat",
+    "texte1": "Faire une coupe &agrave; votre animal est un jeu d'enfant !",
+    "titre2": "Plaid chien ou chat",
+    "texte2": "Le plaid douceur : le complice id&eacute;al pour se reposer"
+  },
+
+  "gift": {
+    "code": "DBWB",
+    "alt": ["Votre premier cadeau La Montre Pierre Cardin® OFFERTE Avec votre commande *", "Votre deuxième cadeau Une surprise bijou OFFERTE **"]
+  },
+
+  "_comment": "",
+  "prix" : "..."
+}

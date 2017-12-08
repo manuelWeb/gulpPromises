@@ -1,0 +1,29 @@
+/! pckx2 module
+- pkX2width = (($column*6)+($gutter*5))-2
+table border==$tabborder0 width==($fullwidth)
+  tr
+    td height==($gutter)
+  tr
+    - for i in (1..2) do
+      td align="center" bgcolor="#006737" width==(pkX2width) height="338" style="padding: 1px;" valign="bottom"
+        table border="0" cellpadding="0" cellspacing="0" width==(pkX2width)
+          tr
+            td align="center" valign="middle" bgcolor="#FFFFFF"
+              a target="_blank" href==($objso['pkX2link'][i.to_s][$objso['pkX2link'][i.to_s].length-1].match(/^(\d)+$/) ? $objso['pkX2link'][i.to_s]+$goolkpdt[0] : $objso['pkX2link'][i.to_s]+$goolkpdt[1])
+                img src==(($abspath == true ? $srcAbs : $srcRel)+"pk#{i}x2_visual.jpg") width==(pkX2width) height="210" border="0" alt=""
+          tr
+            td.pk_title align="center" valign="middle" bgcolor="#FFFFFF" height="47"
+              a target="_blank" href==($objso['pkX2link'][i.to_s][$objso['pkX2link'][i.to_s].length-1].match(/^(\d)+$/) ? $objso['pkX2link'][i.to_s]+$goolkpdt[0] : $objso['pkX2link'][i.to_s]+$goolkpdt[1])
+                == $objso["pkX2Txt"]["titre#{i}"]
+          tr
+            td.pk_txt align="center" valign="top" bgcolor="#FFFFFF" height="47"
+              a target="_blank" href==($objso['pkX2link'][i.to_s][$objso['pkX2link'][i.to_s].length-1].match(/^(\d)+$/) ? $objso['pkX2link'][i.to_s]+$goolkpdt[0] : $objso['pkX2link'][i.to_s]+$goolkpdt[1])
+                == $objso["pkX2Txt"]["texte#{i}"]
+          tr
+            td
+              a target="_blank" href==($objso['pkX2link'][i.to_s][$objso['pkX2link'][i.to_s].length-1].match(/^(\d)+$/) ? $objso['pkX2link'][i.to_s]+$goolkpdt[0] : $objso['pkX2link'][i.to_s]+$goolkpdt[1])
+                img src==(($abspath == true ? $srcAbs : $srcRel)+"pkX2_button.png") width==(pkX2width) height="44" border="0" alt="en savoir plus"
+      - if i < 2
+        td width==$gutter
+  tr
+    td height==($gutter)

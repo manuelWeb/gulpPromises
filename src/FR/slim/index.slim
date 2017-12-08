@@ -1,0 +1,59 @@
+== Slim::Template.new('src/FR/var/_var-link.slim').render
+== Slim::Template.new('src/FR/var/_var-layout.slim').render
+== Slim::Template.new('src/FR/var/_var-pcktxt.slim').render
+== Slim::Template.new('src/FR/var/_var-cssdesk.slim').render
+
+- $abspath = false
+- $imgBGcondition = $abspath == true ? $srcAbs : $srcRel
+
+doctype transitional
+html
+  head
+    meta content="text/html; charset=utf-8" http-equiv="Content-Type"
+    title CHIEN, CHAT ET COMPAGNIE
+    link href="css/styles.css" rel="stylesheet" type="text/css"/
+    / css:  
+    style type="text/css"
+      == $body + $tabFL + $ReadMsgBody + $ExternalClass + $ExternalClass_ALL
+
+  body link="#333333" vlink=($cddark) style="margin: 0; padding: 0; " bgcolor=($bgcolor)
+    table border==($tabborder0) bgcolor==($bgcolor) width="100%"
+      tr
+        td
+          / header document 
+          == Slim::Template.new('./src/FR/partial/_document-header.slim').render
+      tr
+        td
+          /! tab content
+          table border==($tabborder0) align="center" width=($tab1) style="margin: 0 auto;"
+            tr
+              td bgcolor="#FFFFFF" align="center" style="margin: 0 auto;"
+                / header news
+                == Slim::Template.new('./src/FR/partial/_header.slim').render
+
+                / nav
+                == Slim::Template.new('./src/FR/partial/_nav.slim').render
+                
+                / Gift - promo zone
+                == Slim::Template.new('./src/FR/partial/_gift_module.slim').render
+
+                / title => Les nouveautes du mois
+                == Slim::Template.new('./src/FR/partial/_title_pdtDuMois.slim').render
+
+                / pckx3 line1
+                == Slim::Template.new('./src/FR/partial/_pckx3.slim').render
+
+                / pckx2 module
+                == Slim::Template.new('./src/FR/partial/_pckx2.slim').render
+
+                / pckx3 line2
+                / == Slim::Template.new('./src/FR/partial/_pckx3-line2.slim').render
+
+                /! btn 
+                == Slim::Template.new('./src/FR/partial/_btshowallpdt.slim').render
+
+                /! footer
+                == Slim::Template.new('./src/FR/partial/_footer.slim').render
+
+          /!  legal notice
+          == Slim::Template.new('./src/FR/partial/_legal.slim').render

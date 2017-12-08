@@ -1,0 +1,88 @@
+- footabwidth = ($column*12)+($gutter*11)
+table border==($tabborder0) width==(footabwidth)
+  /! garanties
+  tr
+    td
+      table border==($tabborder0) width==(footabwidth)
+        tr
+          td
+            a target="_blank" href==($fgarantie)
+              img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_zone1c1.png") width="170" height="67" border="0" alt=""
+          td
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_zone1Separ.png") width="10" height="67" border="0" alt=""
+          td
+            a target="_blank" href==($flivraison)
+              img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_zone1c2.png") width="170" height="67" border="0" alt=""
+          td
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_zone1Separ.png") width="10" height="67" border="0" alt=""
+          td
+            a target="_blank" href==($fpaiement)
+              img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_zone1c3.png") width="170" height="67" border="0" alt=""
+          td
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_zone1Separ.png") width="10" height="67" border="0" alt=""
+          td
+            a target="_blank" href==($fgarantie)
+              img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_zone1c4.png") width="170" height="67" border="0" alt=""
+  tr
+    td bgcolor="#FFFFFF" width==(footabwidth) height="1"
+  tr
+    td bgcolor="#CBF748" width==(footabwidth) height="9"
+  /! passez votre cmd
+  tr
+    td
+      table border==($tabborder0) width==(footabwidth)
+        tr
+          td
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_zone2c1.png") width="20" height="25" border="0" alt=""
+          td align="center" valign="middle" bgcolor="#FFFFFF" width="204" height="25" style="vertical-align: middle; color: #006638; font-size: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif;"
+            | Passez votre commande :
+          td width="10" height="25"
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_zone2c3.png") border="0" alt=""
+          td width="476" height="25" bgcolor="#CBF748"
+  /! code
+  tr
+    td
+      table border==($tabborder0) width==(footabwidth)
+        tr
+          td align="right" valign="middle" width="510" height="32" bgcolor="#CBF748"
+            span style="vertical-align: middle; color: #006638; font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: bold;"
+              | J’INDIQUE MON CODE CADEAU LORS DE MA COMMANDE : &nbsp;
+          td
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_code_c2.png") width="6" height="32" border="0" alt=""
+          td align="center" valign="middle" width="70" height="32" bgcolor="#006638"
+            table border==($tabborder0)
+              tr
+                td height="1"
+              tr
+                td width="70" height="30" align="center" valign="middle" bgcolor="#FFFFFF"
+                  span style="vertical-align: middle; color: #006638; font-size: 16px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold; text-transform: uppercase;"
+                    ==($objso["gift"]["code"])
+              tr
+                td height="1"
+          td
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_code_c4.png") width="6" height="32" border="0" alt=""
+          td bgcolor="#CBF748" width="118" height="32"
+  tr
+    td width==(footabwidth) height="17" bgcolor="#CBF748"
+  / end code
+  /! tel-internet
+  tr
+    td
+      table border==($tabborder0) width==(footabwidth)
+        tr
+          td
+            a target="_blank" href==($fURL) style="text-decoration: none;"
+              img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_zone3c1.png") width="355" height="112" border="0" alt=""
+          td
+            img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_zone3c2.png") width="355" height="112" border="0" alt=""
+  /! FB
+  tr
+    td
+      a href==($CD_FB_link) target="blank"
+        img src==(($abspath == true ? $srcAbs : $srcRel)+"foo_fb.png") width==(footabwidth) height="33" border="0" alt=""
+  /! marge in
+  tr
+    td height==($gutter*1) width==(footabwidth) bgcolor="#CBF748"
+  /! marge out
+  tr
+    td height==($gutter/2) width==(footabwidth) bgcolor="#FFFFFF"
