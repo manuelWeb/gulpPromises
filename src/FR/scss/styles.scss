@@ -1,6 +1,6 @@
 $cddark: "#006737";
 // class generiques
-table {border-collapse: collapse; margin: auto; padding: 0; }
+table {border-collapse: collapse; padding: 0; }
 td {font-size: 0; }
 td img {display: block; }
 img {display: block; }
@@ -18,3 +18,11 @@ a img {border: 0; }
 .pk_title a {text-decoration: none; color: #5F3712; }
 .pk_txt {vertical-align: top; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 14px;}
 .pk_txt a {text-decoration: none; color: #212121;}
+
+.pdl8 {padding-left: 8px;}
+.pdr8 {padding-right: 8px;}
+.pdt20 {padding-top: 20px;}
+.pdl20 {padding-left: 20px;}
+.pdr20 {padding-right: 20px;}
+.bdl1c {border-left: 1px solid #ccc; }
+.bdr1c {border-right: 1px solid #ccc; }

@@ -1,59 +1,47 @@
-== Slim::Template.new('src/FR/var/_var-link.slim').render
-== Slim::Template.new('src/FR/var/_var-layout.slim').render
-== Slim::Template.new('src/FR/var/_var-pcktxt.slim').render
-== Slim::Template.new('src/FR/var/_var-cssdesk.slim').render
-
-- $abspath = false
-- $imgBGcondition = $abspath == true ? $srcAbs : $srcRel
+/ - $abspath = false
+/ - $imgBGcondition = $abspath == true ? $srcAbs : $srcRel
 
 doctype transitional
 html
+
   head
     meta content="text/html; charset=utf-8" http-equiv="Content-Type"
-    title CHIEN, CHAT ET COMPAGNIE
+    title Spécial Noël : un cadeau, une sélection vite !
     link href="css/styles.css" rel="stylesheet" type="text/css"/
-    / css:  
     style type="text/css"
-      == $body + $tabFL + $ReadMsgBody + $ExternalClass + $ExternalClass_ALL
+      |  .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; } 
 
-  body link="#333333" vlink=($cddark) style="margin: 0; padding: 0; " bgcolor=($bgcolor)
-    table border==($tabborder0) bgcolor==($bgcolor) width="100%"
-      tr
-        td
-          / header document 
-          == Slim::Template.new('./src/FR/partial/_document-header.slim').render
-      tr
-        td
-          /! tab content
-          table border==($tabborder0) align="center" width=($tab1) style="margin: 0 auto;"
-            tr
-              td bgcolor="#FFFFFF" align="center" style="margin: 0 auto;"
-                / header news
-                == Slim::Template.new('./src/FR/partial/_header.slim').render
-
-                / nav
-                == Slim::Template.new('./src/FR/partial/_nav.slim').render
-                
-                / Gift - promo zone
-                == Slim::Template.new('./src/FR/partial/_gift_module.slim').render
-
-                / title => Les nouveautes du mois
-                == Slim::Template.new('./src/FR/partial/_title_pdtDuMois.slim').render
-
-                / pckx3 line1
-                == Slim::Template.new('./src/FR/partial/_pckx3.slim').render
-
-                / pckx2 module
-                == Slim::Template.new('./src/FR/partial/_pckx2.slim').render
-
-                / pckx3 line2
-                / == Slim::Template.new('./src/FR/partial/_pckx3-line2.slim').render
-
-                /! btn 
-                == Slim::Template.new('./src/FR/partial/_btshowallpdt.slim').render
-
-                /! footer
-                == Slim::Template.new('./src/FR/partial/_footer.slim').render
-
-          /!  legal notice
-          == Slim::Template.new('./src/FR/partial/_legal.slim').render
+  body bgcolor="#ffffff" link="#333333" vlink="#666666" style="margin:0;"
+    table border="0" cellpadding="0" cellspacing="0" width="700" align="center"
+      / row 0 HEADER
+      == Slim::Template.new('./src/FR/partial/_document-header.slim').render
+      / / row 1 LOGO + CAT
+      == Slim::Template.new('./src/FR/partial/_header.slim').render
+      / / row 2 NAV
+      == Slim::Template.new('./src/FR/partial/_nav.slim').render
+      / / row 3 KDO
+      == Slim::Template.new('./src/FR/partial/_gift_module.slim').render
+      / / row 4 COUP DE COEUR SYLVIE
+      == Slim::Template.new('./src/FR/partial/_cp_coeur_sylvie.slim').render
+      / / row 5 LES IDÉES DU MOIS
+      / == Slim::Template.new('./src/FR/partial/_titre_id_du_mois.slim').render
+      / / row 6 PK 1-2
+      / == Slim::Template.new('./src/FR/partial/_pk1et2.slim').render
+      / / row 7 ESPACE VERTICAL
+      / == Slim::Template.new('./src/FR/partial/_espaceVertical18h.slim').render
+      / / row 6 PK 3-4
+      / == Slim::Template.new('./src/FR/partial/_pk3et4.slim').render
+      / / row 7 FOOT BORDER TOP
+      / == Slim::Template.new('./src/FR/partial/_foo_bdtop.slim').render
+      / / row 8 PASSEZ VOTRE COMMANDE :
+      / == Slim::Template.new('./src/FR/partial/_foo_passezVotreCmd.slim').render
+      / / row 9 BORDER TOP CODE KDO
+      / == Slim::Template.new('./src/FR/partial/_foo_bdTopCodeKdo.slim').render
+      / / row 10 CODE KDO
+      / == Slim::Template.new('./src/FR/partial/_foo_codeKdo.slim').render
+      / / row 11 ITERNET ET TEL
+      / == Slim::Template.new('./src/FR/partial/_foo_internetAndTel.slim').render
+      / / row 12 PICTO RE-ASSURANCE
+      / == Slim::Template.new('./src/FR/partial/_foo_pictoAssurance.slim').render
+      / / row 13 MENTIONS LÉGALES
+      / == Slim::Template.new('./src/FR/partial/_legales.slim').render
