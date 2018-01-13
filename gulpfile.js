@@ -49,12 +49,6 @@ gulp.task('bs',function () {
 // cp img folder
 // gulp.task('img', ['sass'], function() {
 gulp.task('img', function() {
-  // return gulp.src([src+'**/images/*.{png,jpg,gif}'])
-  // .pipe(changed('src/**/images/'))
-  // .pipe(gulp.dest('render'))
-  // .on('end',function () {
-  //   gulp.start('slim');
-  // })
   return Promise.all([
     new Promise( function(resolve, reject){
       gulp.src([src+'**/images/*.{png,jpg,gif}'])
@@ -69,15 +63,6 @@ gulp.task('img', function() {
 
 // sass 
 gulp.task('sass', function() {
-  // return gulp.src(src+'**/scss/*.scss')
-  // .pipe(sass())
-  // .pipe(sass({errLogToConsole: true}))
-  // .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-  // .pipe(rename(function(path) {
-  //   path.dirname += "/../css";
-  // }))
-  // // .pipe(changed('render#<{(||)}>#css/'))
-  // .pipe(gulp.dest('render'))
   // .pipe(using())
   // // .pipe(bs.reload({stream: true }));
   return Promise.all([
@@ -90,19 +75,16 @@ gulp.task('sass', function() {
       }))
       // .pipe(changed('render#<{(||)}>#css/'))
       .pipe(gulp.dest('render'))
+      .on('end', resolve)
     })
   ]).then(function () {
     console.log('sass terminé run premailer')
+    gulp.start('premailer');
   })
 })
 
 // slim
 gulp.task('slim', function () {
-  // var slimEnd = false;
-  // .on('end',function () {
-  //   slimEnd = true;
-  //   premailergo(slimEnd);
-  // })
   return Promise.all([
     new Promise(function (resolve, reject) {
       gulp.src([src+'**/slim/*.slim'])
@@ -130,24 +112,32 @@ gulp.task('slim', function () {
 
 // premailer
 gulp.task('premailer', function (cb) {
-  var premailEnd = false;
-  gulp.src('render/**/*.html')
-  .pipe(premailer())
-  .pipe(prettify({indent_car:'', indent_size: 2}))
-  .pipe(gulp.dest('render'))
-  .on('end',function () {
-    premailEnd = true;
-    if(cb) {
-      console.log('premailerOK: '+premailEnd+' rm render/slim + scss folder; cb = '+cb);
-      gulp.start('rmRenderSlimFolder');
-      gulp.start('rmRenderCssFolder');
-      // run cp fct to continue stream
-      cb()
-    }
+  return Promise.all([
+    new Promise(function (resolve, reject) {
+      gulp.src('render/**/*.html')
+      .pipe(premailer())
+      .pipe(prettify({indent_car:'', indent_size: 2}))
+      .pipe(gulp.dest('render'))
+      .on('end', resolve)
+    })
+  ]).then(function () {
+    console.log('premailer terminé run bs')
+    gulp.start('bs');
+
   })
-  .pipe(bs.reload({
-    stream: true
-  }))
+  // .on('end',function () {
+  //   premailEnd = true;
+  //   if(cb) {
+  //     console.log('premailerOK: '+premailEnd+' rm render/slim + scss folder; cb = '+cb);
+  //     gulp.start('rmRenderSlimFolder');
+  //     gulp.start('rmRenderCssFolder');
+  //     // run cp fct to continue stream
+  //     cb()
+  //   }
+  // })
+  // .pipe(bs.reload({
+  //   stream: true
+  // }))
 });
 
 gulp.task('rmRenderSlimFolder', function (cb) {
@@ -179,5 +169,5 @@ function premailergo (slimEnd) {
 //   gulp.watch(src+'**/scss/*.scss',['sass', 'slim']);
 // });
 gulp.task('dev1',['img'], function() {
-  gulp.watch([src+'**/images/*.{png,jpg,gif}'],['img']);
+  gulp.watch(['source.json', src+'**/images/*.{png,jpg,gif}',src+'**/**/*.slim',src+'**/scss/*.scss'],['img']);
 });
