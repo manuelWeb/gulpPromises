@@ -38,16 +38,23 @@ function errorLog(error) {
 
 // browser-sync task !attention index.html obligatoire
 gulp.task('bs',function () {
-  bs({
-    // browser: 'chrome',
-    server: {
-      baseDir: 'render/FR'
-    }
+  return Promise.all([
+    new Promise(function (resolve, reject) {
+      resolve(bs({
+              // browser: 'chrome',
+              server: {
+                baseDir: 'render/FR'
+              }
+            }))
+    })
+  ]).then(function () {
+    console.log('rendu terminé supp fold slim + css')
   })
+  //     gulp.start('rmRenderSlimFolder');
+  //     gulp.start('rmRenderCssFolder');
 })
 
 // cp img folder
-// gulp.task('img', ['sass'], function() {
 gulp.task('img', function() {
   return Promise.all([
     new Promise( function(resolve, reject){
@@ -123,7 +130,6 @@ gulp.task('premailer', function (cb) {
   ]).then(function () {
     console.log('premailer terminé run bs')
     gulp.start('bs');
-
   })
   // .on('end',function () {
   //   premailEnd = true;
@@ -152,15 +158,6 @@ gulp.task('rmRenderCssFolder', function (cb) {
     return cb(null);
   });
 });
-
-function premailergo (slimEnd) {
-  console.log('slim complete: '+slimEnd);
-  if(slimEnd=true){
-    gulp.start(['premailer']);
-  }else{
-    console.log('slim pas prêt.......')
-  }
-};
 
 // lancement > fonction watch
 // gulp.task('dev1',['bs','img','slim','sass'], function() {
