@@ -62,48 +62,69 @@ gulp.task('img', function() {
       .on('end', resolve)
     })
   ]).then( function () {
-    console.log('task img ok task suivant : ???')
+    console.log('task img ok task suivant : task slim...');
+    gulp.start('slim');
   });
 })
 
 // sass 
 gulp.task('sass', function() {
-  return gulp.src(src+'**/scss/*.scss')
-  .pipe(sass())
-  .pipe(sass({errLogToConsole: true}))
-  .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-  .pipe(rename(function(path) {
-    path.dirname += "/../css";
-  }))
-  // .pipe(changed('render#<{(||)}>#css/'))
-  .pipe(gulp.dest('render'))
-  .pipe(using())
-  // .pipe(bs.reload({stream: true }));
+  // return gulp.src(src+'**/scss/*.scss')
+  // .pipe(sass())
+  // .pipe(sass({errLogToConsole: true}))
+  // .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+  // .pipe(rename(function(path) {
+  //   path.dirname += "/../css";
+  // }))
+  // // .pipe(changed('render#<{(||)}>#css/'))
+  // .pipe(gulp.dest('render'))
+  // .pipe(using())
+  // // .pipe(bs.reload({stream: true }));
+  return Promise.all([
+    new Promise(function (resolve, reject) {
+      gulp.src(src+'**/scss/*.scss')
+      .pipe(sass({errLogToConsole: true}))
+      .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+      .pipe(rename(function(path) {
+        path.dirname += "/../css";
+      }))
+      // .pipe(changed('render#<{(||)}>#css/'))
+      .pipe(gulp.dest('render'))
+    })
+  ]).then(function () {
+    console.log('sass terminé run premailer')
+  })
 })
 
 // slim
 gulp.task('slim', function () {
-  var slimEnd = false;
-  return gulp.src([src+'**/slim/*.slim'])
-  // .pipe(slim( {pretty: true, tabsize: 2 }))
-  .pipe(slim())
-  .on('error', errorLog)
-  .pipe(gulp.dest('render')) // slim folder
-  .pipe(rename(function(path) {
-    path.dirname += "/../";
-  }))
-  .pipe(foreach(function(stream, file) {
-      var fileName = file.path.substr(file.path.lastIndexOf("\\")-2);
-      // var myregex = /(.+?)\\/;
-      var myregex = fileName.replace(/(.+?)\\.+/,"$1");
-      console.log('myregex ' + myregex + '\n fileName ' + fileName + '\n file.path ' + file.path)
-      return stream
-      .pipe(bs.stream()) // cf premailer task
-    }))
-  .pipe(gulp.dest('render')) // html folder
-  .on('end',function () {
-    slimEnd = true;
-    premailergo(slimEnd);
+  // var slimEnd = false;
+  // .on('end',function () {
+  //   slimEnd = true;
+  //   premailergo(slimEnd);
+  // })
+  return Promise.all([
+    new Promise(function (resolve, reject) {
+      gulp.src([src+'**/slim/*.slim'])
+      .pipe(slim())
+      .on('error', reject)
+      .pipe(gulp.dest('render')) // render/slim/ folder
+      .pipe(rename(function(path) {
+        path.dirname += "/../";
+      }))
+      .pipe(foreach(function(stream, file) {
+          var fileName = file.path.substr(file.path.lastIndexOf("\\")-2);
+          var myregex = fileName.replace(/(.+?)\\.+/,"$1");
+          // console.log('myregex ' + myregex + '\n fileName ' + fileName + '\n file.path ' + file.path)
+          return stream
+          .pipe(bs.stream()) // cf premailer task
+        }))
+      .pipe(gulp.dest('render')) // html folder
+      .on('end', resolve)
+    })
+  ]).then(function () {
+    console.log('slim terminé run sass');
+    gulp.start('sass');
   })
 });
 

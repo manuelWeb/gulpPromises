@@ -1,0 +1,33 @@
+/ ### !important créer les variable depuis source.json
+-require 'json'
+-file = File.read('source.json')
+-$objso = JSON.parse(file)
+/ ### optimiser var avec source.json
+- $date       = $objso['date']
+- $onlinenews = "https://chienchatetcompagnie.com/NewsLettersCD/Cata_#{$date}/index.html"
+- campagne    = "#{$date}_cata"
+- $url        = "https://www.chienchatetcompagnie.com/fr/"; $urlcat = "https://www.chienchatetcompagnie.com/cat/fr/"
+/ HEADER
+- $logo = "#{$url}index.aspx?utm_source=NL&utm_medium=email&utm_content=logo&utm_campaign="+campagne
+- $cat = "#{$urlcat}ECatalog.htm?utm_source=NL&utm_medium=email&utm_content=e-cata&utm_campaign="+campagne
+- $nav = ["#{$url}hygiene-soin/Univers.html","#{$url}promenade-vetements-paniers/Univers.html","#{$url}jeux-loisirs/Univers.html","#{$url}astuces-gourmandises/Univers.html","#{$url}maison-deco-jardin/Univers.html"]
+-$navtrack = "?utm_source=NL&utm_medium=email&utm_content=univers&utm_campaign="+campagne
+/ GIFT
+- ancrecmc = "ctl00_ContentPlaceHolder1_RepeatNiveau_cadeau_ctl00_LAB_PRIVILEGE_COMMANDE"
+- $gift = "https://www.chienchatetcompagnie.com/fr/animation/presentation-cadeaux.aspx?utm_source=NL&utm_medium=email&utm_content=kdos&utm_campaign="+campagne
+- $gift_cmc = "#{$gift}##{ancrecmc}" # < do not change
+/ PCKx3-line1
+- $goolkpdt = ["&utm_source=NL&utm_medium=email&utm_content=pdt&utm_campaign=#{campagne}","?utm_source=NL&utm_medium=email&utm_content=pdt&utm_campaign=#{campagne}"]
+/ btn retrouvez tous nos produits
+-$link_btnshowallpdt = "https://www.chienchatetcompagnie.com/fr/index.aspx?utm_source=NL&utm_medium=email&utm_content=btn_ts_pdt&utm_campaign="+campagne
+/ FOOTER
+- $fURL       = "#{$url}index.aspx?utm_source=NL&utm_medium=email&utm_content=URL&utm_campaign="+campagne
+- $fgarantie  = "#{$url}achat_confiance/garanties.aspx?utm_source=NL&utm_medium=email&utm_content=garantie&utm_campaign="+campagne
+- $flivraison = "#{$url}achat_confiance/informations-livraison.aspx?utm_source=NL&utm_medium=email&utm_content=livraison&utm_campaign="+campagne
+- $fpaiement  = "#{$url}achat_confiance/paiement-securise.aspx?utm_source=NL&utm_medium=email&utm_content=paiement&utm_campaign="+campagne
+- $CD_FB_link = "https://www.facebook.com/chienchatetcompagnie"
+/ LEGAL
+- $modalites   = "https://www.confortetvie.fr/fr/pages/settlement.aspx?utm_source=NL&utm_medium=email&utm_content=garantie&utm_campaign="+campagne+"#info-legale-2"
+- $cgv   = "https://www.chienchatetcompagnie.com/fr/achat_confiance/conditions-generales-de-vente.aspx?utm_source=NL&utm_medium=email&utm_content=cgv&utm_campaign="+campagne
+- $contact   = "https://www.chienchatetcompagnie.com/fr/chat_et_vous/contact.aspx?val=A&utm_source=NL&utm_medium=email&utm_content=contact&utm_campaign="+campagne
+- $desabo    = "https://www.chienchatetcompagnie.com/fr/animation/DesinscriptionNewsletter.aspx?utm_source=NL&utm_medium=email&utm_content=desabo&utm_campaign="+campagne
