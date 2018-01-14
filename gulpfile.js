@@ -38,20 +38,12 @@ function errorLog(error) {
 
 // browser-sync task !attention index.html obligatoire
 gulp.task('bs',function () {
-  return Promise.all([
-    new Promise(function (resolve, reject) {
-      resolve(bs({
-              // browser: 'chrome',
-              server: {
-                baseDir: 'render/FR'
-              }
-            }))
-    })
-  ]).then(function () {
-    console.log('rendu terminé supp fold slim + css')
+  bs({
+    // browser: 'chrome',
+    server: {
+      baseDir: 'render/FR'
+    }
   })
-  //     gulp.start('rmRenderSlimFolder');
-  //     gulp.start('rmRenderCssFolder');
 })
 
 // cp img folder
@@ -67,7 +59,32 @@ gulp.task('img', function() {
     gulp.start('slim');
   });
 })
-
+// slim
+gulp.task('slim', function () {
+  return Promise.all([
+    new Promise(function (resolve, reject) {
+      gulp.src([src+'**/slim/*.slim'])
+      .pipe(slim())
+      .on('error', reject)
+      .pipe(gulp.dest('render')) // render/slim/ folder
+      .pipe(rename(function(path) {
+        path.dirname += "/../";
+      }))
+      .pipe(foreach(function(stream, file) {
+        var fileName = file.path.substr(file.path.lastIndexOf("\\")-2);
+        var myregex = fileName.replace(/(.+?)\\.+/,"$1");
+          // console.log('myregex ' + myregex + '\n fileName ' + fileName + '\n file.path ' + file.path)
+        return stream
+        .pipe(bs.stream()) // cf premailer task
+      }))
+      .pipe(gulp.dest('render')) // html folder
+      .on('end', resolve)
+    })
+  ]).then(function () {
+    console.log('slim terminé run sass');
+    gulp.start('sass');
+  })
+});
 // sass 
 gulp.task('sass', function() {
   // .pipe(using())
@@ -89,34 +106,6 @@ gulp.task('sass', function() {
     gulp.start('premailer');
   })
 })
-
-// slim
-gulp.task('slim', function () {
-  return Promise.all([
-    new Promise(function (resolve, reject) {
-      gulp.src([src+'**/slim/*.slim'])
-      .pipe(slim())
-      .on('error', reject)
-      .pipe(gulp.dest('render')) // render/slim/ folder
-      .pipe(rename(function(path) {
-        path.dirname += "/../";
-      }))
-      .pipe(foreach(function(stream, file) {
-          var fileName = file.path.substr(file.path.lastIndexOf("\\")-2);
-          var myregex = fileName.replace(/(.+?)\\.+/,"$1");
-          // console.log('myregex ' + myregex + '\n fileName ' + fileName + '\n file.path ' + file.path)
-          return stream
-          .pipe(bs.stream()) // cf premailer task
-        }))
-      .pipe(gulp.dest('render')) // html folder
-      .on('end', resolve)
-    })
-  ]).then(function () {
-    console.log('slim terminé run sass');
-    gulp.start('sass');
-  })
-});
-
 // premailer
 gulp.task('premailer', function (cb) {
   return Promise.all([
@@ -126,38 +115,41 @@ gulp.task('premailer', function (cb) {
       .pipe(prettify({indent_car:'', indent_size: 2}))
       .pipe(gulp.dest('render'))
       .on('end', resolve)
+      .pipe(bs.reload({stream: true }))
     })
   ]).then(function () {
     console.log('premailer terminé run bs')
-    gulp.start('bs');
+  }).then(function () {
+    rimraf('./render/**/slim',function (err) {
+      console.log("all done del slim");
+    });
+    rimraf('./render/**/css',function (err) {
+      console.log("all done del css");
+    });
+  }).then(function () {
+    console.log('THE END!!!!!!!!!')
+    // gulp.start('bs');
   })
-  // .on('end',function () {
-  //   premailEnd = true;
-  //   if(cb) {
-  //     console.log('premailerOK: '+premailEnd+' rm render/slim + scss folder; cb = '+cb);
-  //     gulp.start('rmRenderSlimFolder');
-  //     gulp.start('rmRenderCssFolder');
-  //     // run cp fct to continue stream
-  //     cb()
-  //   }
-  // })
-  // .pipe(bs.reload({
-  //   stream: true
-  // }))
 });
 
-gulp.task('rmRenderSlimFolder', function (cb) {
-  rimraf('./render/**/slim',function (err) {
-    console.log("all done del slim");
-    return cb(null);
-  });
+gulp.task('dev1',['img','bs'], function() {
+  gulp.watch(['source.json', src+'**/images/*.{png,jpg,gif}',src+'**/**/*.slim',src+'**/scss/*.scss'],['img']);
 });
-gulp.task('rmRenderCssFolder', function (cb) {
-  rimraf('./render/**/css',function (err) {
-    console.log("all done del css");
-    return cb(null);
-  });
-});
+
+
+// gulp.task('rmRenderSlimFolder', function (cb) {
+//   rimraf('./render/**/slim',function (err) {
+//     console.log("all done del slim");
+//     return cb(null);
+//   });
+// });
+// gulp.task('rmRenderCssFolder', function (cb) {
+//   rimraf('./render/**/css',function (err) {
+//     console.log("all done del css");
+//     return cb(null);
+//   });
+// });
+
 
 // lancement > fonction watch
 // gulp.task('dev1',['bs','img','slim','sass'], function() {
@@ -165,6 +157,3 @@ gulp.task('rmRenderCssFolder', function (cb) {
 //   gulp.watch(['source.json',src+'**/slim/*.slim',src+'**/**/*.slim'],['sass', 'slim', 'img']);
 //   gulp.watch(src+'**/scss/*.scss',['sass', 'slim']);
 // });
-gulp.task('dev1',['img'], function() {
-  gulp.watch(['source.json', src+'**/images/*.{png,jpg,gif}',src+'**/**/*.slim',src+'**/scss/*.scss'],['img']);
-});
