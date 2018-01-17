@@ -3,7 +3,6 @@ require("./tasks/slim.js")();
 // to disable>dest path replace fs
 var gulp         = require('gulp'),
     bs           = require('browser-sync'),
-    slim         = require("gulp-slim"),
     sass         = require('gulp-sass'),
     plumber      = require('gulp-plumber'),
     premailer    = require('gulp-premailer'),
@@ -13,7 +12,6 @@ var gulp         = require('gulp'),
     rm           = require('gulp-rimraf'),
     rimraf       = require('rimraf'),
     prettify     = require('gulp-html-prettify'),
-    foreach      = require("gulp-foreach"),
     changed      = require('gulp-changed');
 
 // src & output
