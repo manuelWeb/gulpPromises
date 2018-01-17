@@ -1,12 +1,12 @@
 require("./tasks/img.js")();
 require("./tasks/slim.js")();
+// lire la note sur dependance de sass cf sass.js
+require("./tasks/sass.js")();
 // to disable>dest path replace fs
 var gulp         = require('gulp'),
     bs           = require('browser-sync'),
-    sass         = require('gulp-sass'),
     plumber      = require('gulp-plumber'),
     premailer    = require('gulp-premailer'),
-    autoprefixer = require('gulp-autoprefixer'),
     rename       = require('gulp-rename'),
     using        = require('gulp-using'),
     rm           = require('gulp-rimraf'),
@@ -34,27 +34,6 @@ gulp.task('bs',function () {
   })
 })
 
-// sass 
-gulp.task('sass', function() {
-  // .pipe(using())
-  // // .pipe(bs.reload({stream: true }));
-  return Promise.all([
-    new Promise(function (resolve, reject) {
-      gulp.src(src+'**/scss/*.scss')
-      .pipe(sass({errLogToConsole: true}))
-      .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-      .pipe(rename(function(path) {
-        path.dirname += "/../css";
-      }))
-      // .pipe(changed('render#<{(||)}>#css/'))
-      .pipe(gulp.dest('render'))
-      .on('end', resolve)
-    })
-  ]).then(function () {
-    console.log('sass terminé run premailer')
-    gulp.start('premailer');
-  })
-})
 // premailer
 gulp.task('premailer', function () {
   return Promise.all([
@@ -84,12 +63,9 @@ gulp.task('premailer', function () {
 function reportChange(event){
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 }
-gulp.task('dev1',['img','slim','bs'], function() {
+
+gulp.task('dev1',['img','slim','sass','bs'], function() {
   // outputs changes to files to the console
   gulp.watch(src+'**/images/*.{png,jpg,gif}',['img']).on('change', reportChange);
-  gulp.watch(['source.json', src+'**/**/*.slim'],['slim']).on('change', reportChange);
+  gulp.watch(['source.json', src+'**/**/*.slim', src+'**/scss/*.scss'], ['slim']).on('change', reportChange);
 });
-// gulp.task('dev1',['img','bs'], function() {
-//   // outputs changes to files to the console
-//   gulp.watch(['source.json', src+'**/images/*.{png,jpg,gif}',src+'**/**/*.slim',src+'**/scss/*.scss'],['img']).on('change', reportChange);
-// });

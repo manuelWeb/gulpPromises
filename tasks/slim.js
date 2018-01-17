@@ -3,7 +3,7 @@ var slim    = require("gulp-slim");
 var foreach = require("gulp-foreach");
 var rename  = require('gulp-rename');
 var bs      = require('browser-sync');
-// with Promise
+// Promise
 module.exports = function () {
   gulp.task('slim', function () {
     return Promise.all([
