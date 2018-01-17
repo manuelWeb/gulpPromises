@@ -132,8 +132,12 @@ gulp.task('premailer', function (cb) {
   })
 });
 
+function reportChange(event){
+    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+}
 gulp.task('dev1',['img','bs'], function() {
-  gulp.watch(['source.json', src+'**/images/*.{png,jpg,gif}',src+'**/**/*.slim',src+'**/scss/*.scss'],['img']);
+  // outputs changes to files to the console
+  gulp.watch(['source.json', src+'**/images/*.{png,jpg,gif}',src+'**/**/*.slim',src+'**/scss/*.scss'],['img']).on('change', reportChange);
 });
 
 
