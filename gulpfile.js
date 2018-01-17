@@ -35,7 +35,6 @@ gulp.task('bs',function () {
   })
 })
 
-
 // slim
 gulp.task('slim', function () {
   return Promise.all([
@@ -84,7 +83,7 @@ gulp.task('sass', function() {
   })
 })
 // premailer
-gulp.task('premailer', function (cb) {
+gulp.task('premailer', function () {
   return Promise.all([
     new Promise(function (resolve, reject) {
       gulp.src('render/**/*.html')
