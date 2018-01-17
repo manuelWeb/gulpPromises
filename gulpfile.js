@@ -1,3 +1,4 @@
+require("./tasks/img.js")();
 // to disable>dest path replace fs
 var gulp         = require('gulp'),
     bs           = require('browser-sync'),
@@ -13,52 +14,28 @@ var gulp         = require('gulp'),
     prettify     = require('gulp-html-prettify'),
     foreach      = require("gulp-foreach"),
     changed      = require('gulp-changed');
-const notifier   = require('node-notifier');
 
 // src & output
 var  src = 'src/';
 // delete old folder before start dev task
 gulp.task('dev', function (cb) {
   rimraf('./render', function cb () {
-    console.log('render is destroyed : clean is over!\nlet\'s work on clean folder!');
+    console.log('render is destroyed : clean is over.\nlet\'s work on clean folder!');
     gulp.start('dev1');
   });
 });
-// gestion erreur
-function errorLog(error) {
-  // console.log(error.toString());
-  notifier.notify({
-    'title': 'Gulp Error !!!',
-    'message': "1-Show Console Error to debug" 
-    +"\n 2-Kill gulp process ctrl+c"
-    +"\n 3-debug error"
-  });
-  console.log(error.toString());
-}
+
 
 // browser-sync task !attention index.html obligatoire
 gulp.task('bs',function () {
   bs({
-    // browser: 'chrome',
     server: {
       baseDir: 'render/FR'
     }
   })
 })
 
-// cp img folder
-gulp.task('img', function() {
-  return Promise.all([
-    new Promise( function(resolve, reject){
-      gulp.src([src+'**/images/*.{png,jpg,gif}'])
-      .pipe(gulp.dest('render'))
-      .on('end', resolve)
-    })
-  ]).then( function () {
-    console.log('task img ok task suivant : task slim...');
-    gulp.start('slim');
-  });
-})
+
 // slim
 gulp.task('slim', function () {
   return Promise.all([
@@ -135,29 +112,12 @@ gulp.task('premailer', function (cb) {
 function reportChange(event){
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 }
-gulp.task('dev1',['img','bs'], function() {
+gulp.task('dev1',['img','slim','bs'], function() {
   // outputs changes to files to the console
-  gulp.watch(['source.json', src+'**/images/*.{png,jpg,gif}',src+'**/**/*.slim',src+'**/scss/*.scss'],['img']).on('change', reportChange);
+  gulp.watch(src+'**/images/*.{png,jpg,gif}',['img']).on('change', reportChange);
+  gulp.watch(['source.json', src+'**/**/*.slim'],['slim']).on('change', reportChange);
 });
-
-
-// gulp.task('rmRenderSlimFolder', function (cb) {
-//   rimraf('./render/**/slim',function (err) {
-//     console.log("all done del slim");
-//     return cb(null);
-//   });
-// });
-// gulp.task('rmRenderCssFolder', function (cb) {
-//   rimraf('./render/**/css',function (err) {
-//     console.log("all done del css");
-//     return cb(null);
-//   });
-// });
-
-
-// lancement > fonction watch
-// gulp.task('dev1',['bs','img','slim','sass'], function() {
-//   gulp.watch([src+'**/images/*.{png,jpg,gif}'],['img']);
-//   gulp.watch(['source.json',src+'**/slim/*.slim',src+'**/**/*.slim'],['sass', 'slim', 'img']);
-//   gulp.watch(src+'**/scss/*.scss',['sass', 'slim']);
+// gulp.task('dev1',['img','bs'], function() {
+//   // outputs changes to files to the console
+//   gulp.watch(['source.json', src+'**/images/*.{png,jpg,gif}',src+'**/**/*.slim',src+'**/scss/*.scss'],['img']).on('change', reportChange);
 // });
