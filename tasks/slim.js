@@ -2,6 +2,7 @@ var gulp    = require("gulp");
 var slim    = require("gulp-slim");
 var foreach = require("gulp-foreach");
 var rename  = require('gulp-rename');
+var bs      = require('browser-sync');
 // with Promise
 module.exports = function () {
   gulp.task('slim', function () {
@@ -19,7 +20,7 @@ module.exports = function () {
           var myregex = fileName.replace(/(.+?)\\.+/,"$1");
             // console.log('myregex ' + myregex + '\n fileName ' + fileName + '\n file.path ' + file.path)
           return stream
-          // .pipe(bs.stream()) // cf premailer task
+          .pipe(bs.stream()) // cf premailer task
         }))
         .pipe(gulp.dest('render')) // html folder
         .on('end', resolve)
