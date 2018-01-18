@@ -1,0 +1,43 @@
+/ footer
+-placeorder="Passez votre commande";
+-internet_tel=["SUR INTERNET Rendez-vous sur www.ideascomfort.be","Par téléphone au 0900 500 00 - 0.50€/min du lundi au vendredi de 8h30 à 20h, le samedi de 9h à 17h."];
+-haconf=["Satisfait ou remboursé","Livraison à la carte","Paiement sécurisé","Garantie 1 an"]
+tr
+  td bgcolor="#FFFFFF" style="padding-bottom: 16px; "
+    img src=$imgSrc+"foo_hr1.png" height="8" border="0" alt=""
+tr
+  td bgcolor="#FFFFFF"
+    table border="0" cellpadding="0" cellspacing="0"
+      tr
+        td
+          img src=$imgSrc+"footer_01.png" width="20" height="20" border="0" alt=""
+        td height="20" valign="middle" align="center" bgcolor="#0070BB" width="203"
+          font style="font-family: Arial, Helvetica, sans-serif; font-size:14px; color: #ffffff; "
+            ==placeorder
+        td
+          img src=$imgSrc+"footer_03.png" width="8" height="20" border="0" alt=""
+tr
+  td
+    table border="0" cellpadding="0" cellspacing="0"
+      tr
+        td
+          a href==$furl target="_blank"
+            img src=$imgSrc+"footer_09.png" width="310" height="97" border="0" alt==internet_tel[0]
+        td
+          img src=$imgSrc+"footer_10.png" width="310" height="97" border="0" alt==internet_tel[1]
+tr
+  td
+    table border="0" cellpadding="0" cellspacing="0"
+      tr
+        td
+          a href==$fgaranties target="_blank"
+            img.txtcenter src=$imgSrc+"footer_11.png" width="155" height="59" border="0" alt==haconf[0]
+        td
+          a href==$flivraison target="_blank"
+            img.txtcenter src=$imgSrc+"footer_12.png" width="155" height="59" border="0" alt==haconf[1]
+        td
+          a href==$fpaiement target="_blank"
+            img.txtcenter src=$imgSrc+"footer_13.png" width="155" height="59" border="0" alt==haconf[2]
+        td
+          a href==$fgaranties target="_blank"
+            img.txtcenter src=$imgSrc+"footer_14.png" width="155" height="59" border="0" alt==haconf[3]

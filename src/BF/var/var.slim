@@ -1,0 +1,45 @@
+/### ID rayon + txtPreHeader + $campaign
+-$title     = "La boutique de noël vous ouvre sa porte !"
+-$txtheader = "Des centaines d'idées à découvrir"
+-$mirorLink = "http://tempsl.com/Newsletters/miroir/#{$miror}/BEFR/index.htm"
+/### do not change content link
+-$url           ="http://www.ideascomfort.be/befr/"
+-$index         ="index.aspx"
+-$srcmedium     =["?utm_source=NL&utm_medium=email","&utm_source=NL&utm_medium=email"]
+-$content       =["&utm_content=","url","garantie","livraison","paiement","cgv","contact","desabo"]
+-$haconfiance   =["achat_confiance/","garanties.aspx","informations-livraison.aspx","paiement-securise.aspx","conditions-generales-de-vente.aspx"]
+-$contactdesabo =["ideascomfort_and_you/contact.aspx?val=A","animation/DesinscriptionNewsletter.aspx"]
+/ compact
+-rayon  = "boutique/rayon_evenement.aspx?urlLangue=fr&nbp=99&pg=0&evenement_id="
+-urlRay = "#{$url}#{rayon}#{$IDray[:bf]}#{$srcmedium[1]}#{$content[0]}"
+-pdt    = ["0", "maison-deco/no-l/2-tasses-decoration-chatons-no-l/1005115.html", "maison-deco/no-l/6-etoiles-dorees/1021112.html", "maison-deco/no-l/pere-no-l-led/1013119.html", "maison-deco/no-l/2-pochettes-cadeaux-chouettes/9590316.html"]
+
+/### content link ["logo", "accroche", "pdt", "prix", "bouton" ]
+-$link_slice1       = "#{$url}#{rayon}#{$IDray[:bf]}#{$srcmedium[1]}#{$content[0]}accroche"+$campaign;# accroche
+-$link_slice2_1     = "#{$url}index.aspx#{$srcmedium[0]}#{$content[0]}logo"+$campaign;# logo
+-$link_slice2_2_1   = "#{$url}#{rayon}#{$IDray[:bf]}#{$srcmedium[1]}#{$content[0]}accroche"+$campaign;# accroche
+-$link_slice2_2_2_1 = "#{$url}#{rayon}#{$IDray[:bf]}#{$srcmedium[1]}#{$content[0]}accroche"+$campaign;# vide! sous accroche
+-$link_slice2_2_2_2 = "#{$url}#{pdt[1]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk2
+-$link_slice3_1     = "#{$url}#{pdt[2]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk1
+-$link_slice3_2     = "#{$url}#{pdt[1]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk2
+-$link_slice4_2     = "#{$url}#{rayon}#{$IDray[:bf]}#{$srcmedium[1]}#{$content[0]}bouton"+$campaign;# btn entrez vite
+-$link_slice5_1     = "#{$url}#{pdt[3]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk3
+-$link_slice5_2     = "#{$url}#{pdt[4]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk4
+-$link_slice6       = "#{$url}#{rayon}#{$IDray[:bf]}#{$srcmedium[1]}#{$content[0]}bouton"+$campaign;# btn rayon
+-$link_insert_kdo   = "#{$url}animation/presentation-cadeaux.aspx#{$srcmedium[0]}#{$content[0]}kdo"+$campaign;# insertKDO
+
+/ alt + title
+-$alt_slice1       = "La boutique de Noël"
+-$alt_slice2_1     = "IDEAS Comfort"
+-$alt_slice2_2_1   = "vous ouvre sa porte !"
+-$alt_slice2_2_2_1 = ""
+-$alt_slice2_2_2_2 = "bougeoir ange"
+-$alt_slice3_1     = "2 sapins cire LED"
+-$alt_slice3_2     = ""
+-$alt_slice4_1     = ""
+-$alt_slice4_2     = "Entrez vite !"
+-$alt_slice4_3     = ""
+-$alt_slice5_1     = "père Noel jongleur"
+-$alt_slice5_2     = "2 pochettes chouette"
+-$alt_slice6       = "Des centaines d’idées à découvrir"
+-$alt_insert_kdo   = "et recevez vos CADEAUX : Le Lot de 3 Plaids GRATUIT* + Didoo Le Nounours Tendresse 4€ seulement dont 3€ reversés à l’UNICEF"

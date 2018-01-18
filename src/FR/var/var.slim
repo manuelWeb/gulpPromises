@@ -1,0 +1,31 @@
+/### change
+-$title     = "Découvrez notre sélection anti-froid !"
+-$txtheader = "Découvrez nos solutions pour lutter contre le froid"
+/### do not change
+-$mirorLink = "http://tempsl.com/Newsletters/miroir/#{$miror}/FR/index.htm"
+-$url       ="http://www.tempsl.fr/fr/";$urlCat ="http://www.tempsl.fr/cat/fr/"
+-$index     ="index.aspx"
+-$srcmedium =["?utm_source=NL&utm_medium=email","&utm_source=NL&utm_medium=email"]
+-$content   =["&utm_content=","url","garantie","livraison","paiement","contact","desabo"]
+/ compact
+-rayon  = "boutique/rayon_evenement.aspx?urlLangue=fr&nbp=99&pg=0&evenement_id="
+-urlRay = "#{$url}#{rayon}#{$IDray[:fr]}#{$srcmedium[1]}#{$content[0]}"
+-pdt    = ["0", "vetements-accessoires/hiver/cols-roules-lot-2/7846017.html", "vetements-accessoires/accessoires-personnels/chapeau-polaire-double-epaisseur-beige/9228321.html", "vetements-accessoires/hiver/cape-microfibres-beige/8512014.html", "vetements-accessoires/hiver/semelles-mouton/9438011.html"]
+
+/### content link ["logo", "accroche", "pdt", "prix", "bouton" ]
+- $slice1   = "#{$url}index.aspx#{$srcmedium[0]}#{$content[0]}logo#{$campaign}"
+- $slice2   = "#{$url}#{rayon}#{$IDray[:fr]}#{$srcmedium[1]}#{$content[0]}accroche#{$campaign}"
+- $slice3_1 = "#{$url}#{pdt[1]}#{$srcmedium[0]}#{$content[0]}pdt#{$campaign}"
+- $slice3_2 = "#{$url}#{pdt[2]}#{$srcmedium[0]}#{$content[0]}pdt#{$campaign}"
+- $slice4_1 = "#{$url}#{pdt[3]}#{$srcmedium[0]}#{$content[0]}pdt#{$campaign}"
+- $slice4_2 = "#{$url}#{pdt[4]}#{$srcmedium[0]}#{$content[0]}pdt#{$campaign}"
+- $slice5   = "#{$url}#{rayon}#{$IDray[:fr]}#{$srcmedium[1]}#{$content[0]}bouton#{$campaign}"
+
+/ alt + title
+- $alt_slice1   = "TEMPS L"
+- $alt_slice2   = "Découvrez notre Sélection ANTI-FROID !"
+- $alt_slice3_1 = "Lot de 2 cols roulés 14.95€"
+- $alt_slice3_2 = "Chapeau polaire double épaisseur 9.95€"
+- $alt_slice4_1 = "Cape microfibres 2 coloris 19.95€"
+- $alt_slice4_2 = "Semelles mouton 6.95€"
+- $alt_slice5   = "> Voir TOUTE la sélection ANTI-FROID"

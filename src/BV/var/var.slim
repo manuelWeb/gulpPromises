@@ -1,0 +1,47 @@
+/### ID rayon + txtPreHeader + $campaign
+-$title     = "IDEAS Comfort"
+-$txtheader = "OUTLET"
+-$mirorLink = "http://tempsl.com/Newsletters/miroir/#{$miror}/BEVL/index.htm"
+/### do not change content link
+-$url       ="http://www.ideascomfort.be/bevl/"
+-$index     ="index.aspx"
+-$srcmedium =["?utm_source=NL&utm_medium=email","&utm_source=NL&utm_medium=email"]
+-$content   =["&utm_content=","url","garantie","livraison","paiement","cgv","contact","desabo"]
+/### do not change footer
+-$haconfiance=["achat_confiance/","garanties.aspx","informations-livraison.aspx","paiement-securise.aspx","conditions-generales-de-vente.aspx"]
+/### do not change mentions
+-$contactdesabo=["ideascomfort_and_you/contact.aspx?val=A","animation/DesinscriptionNewsletter.aspx"]
+/ compact
+/ -urlpathpage = "keuken/keukenapparatuur/koekenpan-grill-en-oven-in-een-apparaat/2585313.html"
+-rayon      = "boutique/rayon_evenement.aspx?urlLangue=fr&nbp=99&pg=0&evenement_id="
+-urlRay     = "#{$url}#{rayon}#{$IDray[:bv]}#{$srcmedium[1]}#{$content[0]}"
+-pdt    = ["0", "huis-decoratie/kerstversiering/6-goudkleurige-sterren/1021112.html", "huis-decoratie/kerstversiering/2-decoratieve-kerstkopjes-met-poezen/1005115.html", "huis-decoratie/kerstversiering/led-kerstman/1013119.html", "huis-decoratie/kerstversiering/2-uilvormige-geschenkzakjes/9590316.html"]
+
+/### content link ["logo", "accroche", "pdt", "prix", "bouton" ]
+-$link_slice1       = "#{$url}#{rayon}#{$IDray[:bv]}#{$srcmedium[1]}#{$content[0]}accroche"+$campaign;# accroche
+-$link_slice2_1     = "#{$url}index.aspx#{$srcmedium[0]}#{$content[0]}logo"+$campaign;# logo
+-$link_slice2_2_1   = "#{$url}#{rayon}#{$IDray[:bv]}#{$srcmedium[1]}#{$content[0]}accroche"+$campaign;# accroche
+-$link_slice2_2_2_1 = "#{$url}#{rayon}#{$IDray[:bv]}#{$srcmedium[1]}#{$content[0]}accroche"+$campaign;# vide! sous accroche
+-$link_slice2_2_2_2 = "#{$url}#{pdt[1]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk2
+-$link_slice3_1     = "#{$url}#{pdt[2]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk1
+-$link_slice3_2     = "#{$url}#{pdt[1]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk2
+-$link_slice4_2     = "#{$url}#{rayon}#{$IDray[:bv]}#{$srcmedium[1]}#{$content[0]}bouton"+$campaign;# btn entrez vite
+-$link_slice5_1     = "#{$url}#{pdt[3]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk3
+-$link_slice5_2     = "#{$url}#{pdt[4]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk4
+-$link_slice6       = "#{$url}#{rayon}#{$IDray[:bv]}#{$srcmedium[1]}#{$content[0]}bouton"+$campaign;# btn rayon
+-$link_insert_kdo   = "#{$url}animation/presentation-cadeaux.aspx#{$srcmedium[0]}#{$content[0]}kdo"+$campaign;# insertKDO
+
+/ alt + title
+-$alt_slice1       = "De kerstwinkel";# accroche
+-$alt_slice2_1     = "IDEAS Comfort";# logo
+-$alt_slice2_2_1   = "opent voor u haar deuren";# accroche
+-$alt_slice2_2_2_1 = "";# vide! sous accroche
+-$alt_slice2_2_2_2 = "6 goudkleurige sterren";# pk2
+-$alt_slice3_1     = "2 uilvormige geschenkzakjes";# pk1
+-$alt_slice3_2     = "";# pk2
+-$alt_slice4_1     = "";# vide gch btn
+-$alt_slice4_2     = "Kom snel binnen";# btn entrez vite
+-$alt_slice4_3     = "";# vide dr btn
+-$alt_slice5_1     = "Led-kerstman";# pk3
+-$alt_slice5_2     = "2 uilvormige geschenkzakjes";# pk4
+-$alt_slice6       = "Honderden ideeën om te ontdekken";# btn rayon

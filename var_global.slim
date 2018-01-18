@@ -2,3 +2,43 @@
 -require 'json'
 -file = File.read('source.json')
 -$objso = JSON.parse(file)
+
+/ temps
+-date         = "1116"
+-campaignName = "froid"
+-$vartxtcolor = "#0078B8"
+
+-$campaign = "&utm_campaign=#{date}_#{campaignName}"
+-$miror    = "News_"+"#{campaignName}_#{date}"
+/ layout
+-$imgSrc = "http://www.webdesignord.fr/domoti/TL/images/"
+-$imgSrc = "images/"
+
+-$white      = "#FFFFFF"
+-$varbgcolor = $white
+/ ID rayon
+- $IDray = { # ...,
+  fr: "1380",
+  bf: "1363",
+  bv: "1367",
+  nl: "1362",
+  de: "1366",
+  uk: "1365"}
+  
+/ remplir si mention supplementaire
+- $legalplus = { # ...,
+  bf: "",
+  bv: "",
+  de: "",
+  fr: "",
+  nl: "",
+  uk: ""}
+
+/ LAYOUT
+- $shadLR_H = 1048
+
+/ main nav
+-$altunivers = ["CUISINE","ENTRETIEN ET RANGEMENT","SANTE ET BEAUTE","MAISON ET DECO","LOISIRS","VETEMENTS ET ACCESSOIRES"]
+
+/ code KDO footer
+- $code = "XXXX"

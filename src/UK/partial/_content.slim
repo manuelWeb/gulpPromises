@@ -1,0 +1,28 @@
+/ mentions
+-phonecoast="**Calls cost 7 pence per minute, plus your phone company’s access charge. <br /> Monday-Friday 8.30am - 5pm / Saturday 8.30am - 4.30pm.";
+-contacttxt=["Contact us","."];
+-desabotxt=["Click here to ","unsubscribe","."];
+-CGVtxt=["Please click through for our terms &amp; conditions of purchase ","on this page",".","©2016- Bakdo BV. Registration number 57557047. Ideas Comfort, PO Box 1202, Spalding, PE11 9FA."];
+tr
+  td align="left" style="padding-top: 3px; padding-right: 10px; padding-left: 10px; padding-bottom: 20px; "
+    p style="margin: 0; text-align: justify; line-height: 140%; font-family: Verdana, Geneva, sans-serif; font-size: 11px; color: #555555;"
+      / == $legalplus[:uk]
+      
+      == phonecoast
+      br
+      a href==$lcontact target="_blank" style="color: #333333; text-decoration: underline;"
+        strong
+          ==contacttxt[0]
+      ==contacttxt[1]
+      br
+      ==desabotxt[0]
+      a href==$ldesabo target="_blank" style="color: #333333; text-decoration: underline;"
+        ==desabotxt[1]
+      ==desabotxt[2]
+      br
+      ==CGVtxt[0]
+      a href==$lCGV target="_blank" style="color: #333333; text-decoration: underline;"
+        strong ==CGVtxt[1]
+      ==CGVtxt[2]
+      br
+      ==CGVtxt[3]

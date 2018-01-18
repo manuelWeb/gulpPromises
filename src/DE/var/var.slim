@@ -1,0 +1,47 @@
+/### ID rayon + txtPreHeader + $campaign
+-$title     = "IDEAS Comfort"
+-$txtheader = "SCHNÄPPCHEN"
+-$mirorLink = "http://tempsl.com/Newsletters/miroir/#{$miror}/DE/index.htm"
+/### do not change content link
+-$url       ="http://www.ideascomfort.de/de/"
+-$index     ="index.aspx"
+-$srcmedium =["?utm_source=NL&utm_medium=email","&utm_source=NL&utm_medium=email"]
+-$content   =["&utm_content=","url","garantie","livraison","paiement","cgv","contact","desabo","mentions_legales"]
+/### do not change footer
+-$haconfiance=["achat_confiance/","garanties.aspx","informations-livraison.aspx","paiement-securise.aspx","conditions-generales-de-vente.aspx","mentions-legales.aspx"]
+/### do not change mentions
+-$contactdesabo=["ideascomfort_and_you/contact.aspx?val=A","animation/DesinscriptionNewsletter.aspx"]
+/ compact
+/ -urlpathpage = "kuche/kochgerate/einfallsreicher-express-garer/2585313.html"
+-rayon      = "boutique/rayon_evenement.aspx?urlLangue=fr&nbp=99&pg=0&evenement_id="
+-urlRay     = "#{$url}#{rayon}#{$IDray[:de]}#{$srcmedium[1]}#{$content[0]}"
+-pdt    = ["0", "heim-dekoration/weihnachtsdeko/2-deko-tassen-weihnachtskatzchen/1005115.html", "heim-dekoration/weihnachtsdeko/6-goldene-sterne/1021112.html", "heim-dekoration/weihnachtsdeko/led-weihnachtsmann/1013119.html", "heim-dekoration/weihnachtsdeko/2-geschenktuten-eulen/9590316.html"]
+
+/### content link ["logo", "accroche", "pdt", "prix", "bouton" ]
+-$link_slice1       = "#{$url}#{rayon}#{$IDray[:de]}#{$srcmedium[1]}#{$content[0]}accroche"+$campaign;# accroche
+-$link_slice2_1     = "#{$url}index.aspx#{$srcmedium[0]}#{$content[0]}logo"+$campaign;# logo
+-$link_slice2_2_1   = "#{$url}#{rayon}#{$IDray[:de]}#{$srcmedium[1]}#{$content[0]}accroche"+$campaign;# accroche
+-$link_slice2_2_2_1 = "#{$url}#{rayon}#{$IDray[:de]}#{$srcmedium[1]}#{$content[0]}accroche"+$campaign;# vide! sous accroche
+-$link_slice2_2_2_2 = "#{$url}#{pdt[1]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk2
+-$link_slice3_1     = "#{$url}#{pdt[2]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk1
+-$link_slice3_2     = "#{$url}#{pdt[1]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk2
+-$link_slice4_2     = "#{$url}#{rayon}#{$IDray[:de]}#{$srcmedium[1]}#{$content[0]}bouton"+$campaign;# btn entrez vite
+-$link_slice5_1     = "#{$url}#{pdt[3]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk3
+-$link_slice5_2     = "#{$url}#{pdt[4]}#{$srcmedium[0]}#{$content[0]}pdt"+$campaign;# pk4
+-$link_slice6       = "#{$url}#{rayon}#{$IDray[:de]}#{$srcmedium[1]}#{$content[0]}bouton"+$campaign;# btn rayon
+-$link_insert_kdo   = "#{$url}animation/presentation-cadeaux.aspx#{$srcmedium[0]}#{$content[0]}kdo"+$campaign;# insertKDO
+
+/ alt + title
+-$alt_slice1       = "Der kleine Weihnachtsmarkt";# accroche
+-$alt_slice2_1     = "IDEAS Comfort";# logo
+-$alt_slice2_2_1   = "öffnet seine Tür";# accroche
+-$alt_slice2_2_2_1 = "";# vide! sous accroche
+-$alt_slice2_2_2_2 = "6 goldene Sterne";# pk2
+-$alt_slice3_1     = "Deko-Tassen Weihnachtskätzchen";# pk1
+-$alt_slice3_2     = "";# pk2
+-$alt_slice4_1     = "";# vide gch btn
+-$alt_slice4_2     = "Treten Sie schnell ein";# btn entrez vite
+-$alt_slice4_3     = "";# vide dr btn
+-$alt_slice5_1     = "LED-Weihnachtsmann";# pk3
+-$alt_slice5_2     = "2 Geschenktüten Eulen";# pk4
+-$alt_slice6       = "Entdecken Sie die schönsten Weihnachtsdekorationen";# btn rayon

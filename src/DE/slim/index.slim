@@ -1,0 +1,59 @@
+== Slim::Template.new('./var_global.slim').render
+== Slim::Template.new('./src/DE/var/var.slim').render
+== Slim::Template.new('./src/DE/var/var_footer.slim').render
+/ temps var / LAYOUT
+- $shadLR_H = 1090
+doctype transitional
+html xmlns="http://www.w3.org/1999/xhtml"
+  head
+    title == ($title)
+    meta http-equiv="Content-Type" content="text/html; charset=utf-8"
+    css:
+      body {width: 100%; margin: 0; line-height: 121%; background-color: #{$varbgcolor};}
+      img {font-family: Arial, sans-serif; font-size: 16px;}
+      table td {border-collapse: collapse;}
+      td {line-height: 1px; font-size: 1px;}
+      td font, td span{line-height: normal;}
+      td img {display: block; line-height: normal; }
+      .w100 {width: 100%;}
+      .bg-color {background-color: #{$varbgcolor};}
+      .teaserText, .logo {font-family: Arial, sans-serif; font-weight: bold; font-size: 30px; text-align: center; line-height: 100%;}
+      .logo {text-align: left; color: #E2144D;}
+      .teaserText {font-size: 36px; line-height: 38px;color: #{$vartxtcolor}; text-align: center;}
+      .selBtn {font-size: 21px; line-height: 28px;color: #{$vartxtcolor}; text-align: center;}
+      .txtcenter {text-align: center;}
+      .lh-100 {line-height: 100%;}
+      .lh-130 {line-height: 130%;}
+      .lh-150 {line-height: 150%;}
+      .m0auto {margin: 0 auto;}
+      .m0 {margin: 0;} .pb10 {padding-bottom: 10px;}
+  body bgcolor="#{$varbgcolor}"
+    table.m0auto.bg-color.w100 align="center" border="0" cellpadding="0" cellspacing="0" width="640"
+      /! header
+      == Slim::Template.new('./src/DE/partial/_header.slim').render
+      tr
+        td.m0auto align="center"
+          img src=$imgSrc+"top-shad.png" width="640" height="10" border="0" alt=""
+      /! content
+      tr
+        td
+          table.m0auto border="0" cellpadding="0" cellspacing="0" width="640" align="center"
+            tr
+              td valign="top"
+                img src=$imgSrc+"left-shad.png" width="10" height==($shadLR_H) border="0" alt=""
+
+              td
+                table border="0" cellpadding="0" cellspacing="0" width="620"
+                  / content
+                  == Slim::Template.new('./src/FR/partial/_contentNogift.slim').render
+
+                  tr
+                    td bgcolor==($white) height="0"
+
+                  /! footer
+                  == Slim::Template.new('./src/DE/partial/_footer.slim').render
+                  
+                  /! mentions
+                  == Slim::Template.new('./src/DE/partial/_mentions.slim').render
+              td valign="top"
+                img src=$imgSrc+"right-shad.png" width="10" height==($shadLR_H) border="0" alt=""

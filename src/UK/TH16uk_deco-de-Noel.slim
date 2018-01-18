@@ -1,0 +1,115 @@
+== Slim::Template.new('UK/var.slim').render
+doctype transitional
+html[xmlns="http://www.w3.org/1999/xhtml"]
+  head
+    title == ($title)
+    meta[http-equiv="Content-Type" content="text/html; charset=utf-8"]
+    css:
+      body {width: 100%; margin: 0; line-height: 121%; background-color: #FFFFFF;}
+      td img {display: block;}
+      img {font-family: Arial, sans-serif; font-size: 16px;}
+      .w100 {width: 100%;}
+      .bg-color {background-color: #F6EDDD;}
+      .teaserText, .logo, .etc {font-family: Arial, sans-serif; font-weight: bold; font-size: 30px; text-align: center; line-height: 100%;}
+      .logo {text-align: left; color: #E2144D;} .etc {font-size: 14px; line-height: 14px;}
+      .teaserText, .selBtn {font-size: 36px; line-height: 38px;color: #F33A00; text-align: center;} .teaserText {font-size: 72px;} .teaserText1 {font-size: 40px; line-height: 40px; color: #333333;}
+      .txtcenter {text-align: center;}
+      .lh-100 {line-height: 100%;}
+      .lh-130 {line-height: 130%;}
+      .lh-150 {line-height: 150%;}
+      .m0auto {margin: 0 auto;}
+      .m0 {margin: 0;}
+  body[bgcolor="#F6EDDD"]
+    table.m0auto.bg-color.w100[align="center" border="0" cellpadding="0" cellspacing="0" width="640"]
+      /! header
+      == Slim::Template.new('UK/_header.slim').render
+      tr
+        td.m0auto[ align="center"]
+          img[src="images/shad-top.png" width="640" height="10" border="0" alt=""]
+      /! content
+      tr
+        td
+          table.m0auto[border="0" cellpadding="0" cellspacing="0" width="640" align="center"]
+            tr
+              td valign="top"
+                img[src="images/left-shad.png" width="10" height="870" border="0" alt=""]
+              td
+                table[border="0" cellpadding="0" cellspacing="0" width="620"]
+                  tr
+                    td
+                      a href==($link_slice1) target="_blank"
+                        img[name="slice1" src="images/slice1.jpg" width="620" height="53" border="0" alt==$alt_slice1]
+                  tr
+                    td
+                      table[border="0" cellpadding="0" cellspacing="0" width="620"]
+                        tr
+                          td
+                            a href==($link_slice2_1) target="_blank"
+                              img[name="slice2_1" src="images/slice2_1.jpg" width="160" height="142" border="0" alt==$alt_slice2_1]
+                          td
+                            table[border="0" cellpadding="0" cellspacing="0" width="460"]
+                              tr
+                                td
+                                  a href==($link_slice2_2_1) target="_blank"
+                                    img[name="slice2_2_1" src="images/slice2_2_1.jpg" width="460" height="51" border="0" alt==$alt_slice2_2_1]
+                              tr
+                                td
+                                  table[border="0" cellpadding="0" cellspacing="0" width="460"]
+                                    tr
+                                      td
+                                        a href==($link_slice2_2_2_1) target="_blank"
+                                          img[name="slice2_2_2_1" src="images/slice2_2_2_1.jpg" width="242" height="91" border="0" alt==$alt_slice2_2_2_1]
+                                      td
+                                        a href==($link_slice2_2_2_2) target="_blank"
+                                          img[name="slice2_2_2_2" src="images/slice2_2_2_2.jpg" width="218" height="91" border="0" alt==$alt_slice2_2_2_2]
+                  tr
+                    td
+                      table[border="0" cellpadding="0" cellspacing="0" width="620"]
+                        tr
+                          td
+                            a href==($link_slice3_1) target="_blank"
+                              img[name="slice3_1" src="images/slice3_1.jpg" width="310" height="217" border="0" alt==$alt_slice3_1]
+                          td
+                            a href==($link_slice3_2) target="_blank"
+                              img[name="slice3_2" src="images/slice3_2.jpg" width="310" height="217" border="0" alt==$alt_slice3_2]
+                  tr
+                    td
+                      table[border="0" cellpadding="0" cellspacing="0" width="620"]
+                        tr
+                          td
+                            / a href==($link_slice4_1) target="_blank"
+                            img[name="slice4_1" src="images/slice4_1.png" width="229" height="82" border="0" alt==$alt_slice4_1]
+                          td
+                            a href==($link_slice4_2) target="_blank"
+                              img[name="slice4_2" src="images/slice4_2.gif" width="180" height="82" border="0" alt==$alt_slice4_2]
+                          td
+                            / a href==($link_slice4_3) target="_blank"
+                            img[name="slice4_3" src="images/slice4_3.png" width="211" height="82" border="0" alt==$alt_slice4_3]
+                  tr
+                    td
+                      table[border="0" cellpadding="0" cellspacing="0" width="620"]
+                        tr
+                          td
+                            a href==($link_slice5_1) target="_blank"
+                              img[name="slice5_1" src="images/slice5_1.jpg" width="310" height="336" border="0" alt==$alt_slice5_1]
+                          td
+                            a href==($link_slice5_2) target="_blank"
+                              img[name="slice5_2" src="images/slice5_2.jpg" width="310" height="336" border="0" alt==$alt_slice5_2]
+                  tr
+                    td style="padding-bottom: 10px;" bgcolor="#FFFFFF"
+                      a href==($link_slice6) target="_blank"
+                        img.txtcenter[name="slice6" src="images/slice6.png" width="620" height="61" border="0" alt==$alt_slice6]
+                  / tr
+                  /   td
+                  /     a href==($link_insert_kdo) target="_blank"
+                  /       img.txtcenter[name="insert_kdo" src="images/insert_kdo.png" width="620" height="226" border="0" alt==$alt_insert_kdo]
+                  
+                  /! end content
+
+                  /! footer
+                  == Slim::Template.new('UK/_footer.slim').render
+                  
+                  /! mentions
+                  == Slim::Template.new('UK/_mentions.slim').render
+              td valign="top"
+                img[src="images/right-shad.png" width="10" height="870" border="0" alt=""]

@@ -1,0 +1,13 @@
+/ header
+-headertxtserv=["If the page does not come up, please ","click here"];
+tr
+  td align="center" style="padding-top :4px;"
+    p.lh-130.m0 style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #{$vartxtcolor};"
+      ==($txtheader)
+tr
+  td align="center" valign="middle"
+    p.lh-130.m0 style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #333333;"
+      =headertxtserv[0] 
+      a href==($mirorLink) target="_blank" style="color:#333333;"
+        strong
+          =headertxtserv[1]

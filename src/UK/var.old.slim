@@ -1,0 +1,55 @@
+/### txtPreHeader + $campaign
+-$txtheader = "SALE";
+-$campaign  ="&utm_campaign=1015_deco_Noel";
+/### do not change content link
+-$url       ="http://www.ideascomfort.co.uk/uk/";
+-$index     ="index.aspx";
+-$srcmedium =["?utm_source=NL&utm_medium=email","&utm_source=NL&utm_medium=email"];
+-$content   =["&utm_content=","url","garantie","livraison","paiement","contact","desabo","CGV"];
+/### do not change footer
+-$haconfiance =["achat_confiance/","garanties.aspx","informations-livraison.aspx","paiement-securise.aspx","conditions-generales-de-vente.aspx"];
+/### do not change mentions
+-$contactdesabo=["/tempsl_et_vous/contact.aspx?val=A","animation/DesinscriptionNewsletter.aspx"];
+
+/### content link
+-$link_slice1       = "#{$url}boutique/rayon_evenement.aspx?pg=0&nbp=99&evenement_id=1127&utm_source=NL&utm_medium=email&utm_content=accroche"+$campaign;# accroche
+-$link_slice2_1     = "#{$url}uk/index.aspx?utm_source=NL&utm_medium=email&utm_content=logo"+$campaign;# logo
+-$link_slice2_2_1   = "#{$url}boutique/rayon_evenement.aspx?pg=0&nbp=99&evenement_id=1127&utm_source=NL&utm_medium=email&utm_content=accroche"+$campaign;# accroche
+-$link_slice2_2_2_1 = "#{$url}boutique/rayon_evenement.aspx?pg=0&nbp=99&evenement_id=1127&utm_source=NL&utm_medium=email&utm_content=accroche"+$campaign;# vide! sous accroche
+-$link_slice2_2_2_2 = "#{$url}uk/home-decoration/christmas/angel-candleholder/7591217.html?utm_source=NL&utm_medium=email&utm_content=pdt"+$campaign;# pk2
+-$link_slice3_1     = "#{$url}uk/home-decoration/christmas/2-led-wax-christmas-trees/9639311.html?utm_source=NL&utm_medium=email&utm_content=pdt"+$campaign;# pk1
+-$link_slice3_2     = "#{$url}uk/home-decoration/christmas/angel-candleholder/7591217.html?utm_source=NL&utm_medium=email&utm_content=pdt"+$campaign;# pk2
+/ -$link_slice4_1     = ""+$campaign;# vide gch btn
+-$link_slice4_2     = "#{$url}boutique/rayon_evenement.aspx?pg=0&nbp=99&evenement_id=1127&utm_source=NL&utm_medium=email&utm_content=bouton"+$campaign;# btn entrez vite
+/ -$link_slice4_3     = ""+$campaign;# vide dr btn
+-$link_slice5_1     = "#{$url}uk/home-decoration/christmas/juggling-father-christmas/9654310.html?utm_source=NL&utm_medium=email&utm_content=pdt"+$campaign;# pk3
+-$link_slice5_2     = "#{$url}uk/home-decoration/christmas/2-owl-gift-pouches/9590316.html?utm_source=NL&utm_medium=email&utm_content=pdt"+$campaign;# pk4
+-$link_slice6       = "#{$url}boutique/rayon_evenement.aspx?pg=0&nbp=99&evenement_id=1127&utm_source=NL&utm_medium=email&utm_content=bouton"+$campaign;# btn rayon
+/ -$link_insert_kdo       = "http://www.tempsl.fr/fr/animation/presentation-cadeaux.aspx?utm_source=NL&utm_medium=email&utm_content=kdo"+$campaign;# inserKDO
+/### alt + title
+-$title            = "IDEAS Comfort";
+-$alt_slice1       = "The doors are now open";# accroche
+-$alt_slice2_1     = "IDEAS Comfort";# logo
+-$alt_slice2_2_1   = "to the Christmas store";# accroche
+-$alt_slice2_2_2_1 = "";# vide! sous accroche
+-$alt_slice2_2_2_2 = "Angel candleholder";# pk2
+-$alt_slice3_1     = "2 LED wax Christmas trees";# pk1
+-$alt_slice3_2     = "";# pk2
+-$alt_slice4_1     = "";# vide gch btn
+-$alt_slice4_2     = "Go fast";# btn entrez vite
+-$alt_slice4_3     = "";# vide dr btn
+-$alt_slice5_1     = "Juggling Father Christmas";# pk3
+-$alt_slice5_2     = "2 owl gift pouches";# pk4
+-$alt_slice6       = "Hundreds of ideas to discover";# btn rayon
+/ -$alt_insert_kdo   = "et recevez vos CADEAUX : Le Lot de 3 Plaids GRATUIT* + Didoo Le Nounours Tendresse 4€ seulement dont 3€ reversés à l’UNICEF";# btn rayon
+
+/### do not change footer
+-$furl       =$url+$index+$srcmedium[0]+$content[0]+$content[1]+$campaign;
+-$fgaranties =$url+$haconfiance[0]+$haconfiance[1]+$srcmedium[0]+$content[0]+$content[2]+$campaign;
+-$flivraison =$url+$haconfiance[0]+$haconfiance[2]+$srcmedium[0]+$content[0]+$content[3]+$campaign;
+-$fpaiement  =$url+$haconfiance[0]+$haconfiance[3]+$srcmedium[0]+$content[0]+$content[4]+$campaign;
+
+/### do not change mentions
+-$lcontact =$url+$contactdesabo[0]+$srcmedium[1]+$content[0]+$content[5]+$campaign;
+-$ldesabo  =$url+$contactdesabo[1]+$srcmedium[0]+$content[0]+$content[6]+$campaign;
+-$lCGV     =$url+$haconfiance[0]+$haconfiance[4]+$content[0]+$content[7]+$campaign;

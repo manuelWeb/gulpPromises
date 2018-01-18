@@ -1,25 +1,12 @@
+/ header
 tr
-  td colspan="2"
-    table border="0" cellpadding="0" cellspacing="0" width="700"
-      tr
-        / logo + Feuilletez le... cliquez ici ->
-        / td > tab > (tr+td*2)*2
-        td
-          table border="0" cellpadding="0" cellspacing="0" width="586"
-            tr
-              td colspan="2" width="586" height="34"
-            tr
-              / logo + Feuilletez le catalogue
-              td
-                a href="#link" target="_blank" style="border:none; outline:none;"
-                  img src="images/header_01.png" width="350" height="83" border="0" style="display:block;" alt="Tempsl.fr"
-              td
-                a href="#link" target="_blank" style="border:none;outline:none;"
-                  img src="images/header_02.png" width="236" height="83" border="0" style="display:block;" alt="Feuilletez le nouveau catalogue ! cliquez ici"
-        / cover + bdright td>a>img
-        td
-          a href="#link" target="_blank" style="border:none; outline:none;"
-            img src="images/TLFR_1217.png" width="98" height="117" border="0" style="display:block;" alt=""
-        / img right corner (border #ccc)
-        td
-          img src="images/headerEnd.png" width="16" height="117" border="0" style="display:block;" alt=""
+  td.m0auto width="620" align="center" style="padding-top: 4px;"
+    p.lh-130.m0 style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #{$vartxtcolor};"
+      strong
+        == $txtheader
+      br
+    p.lh-100.m0 style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #333333;"
+      | Si la page ne s'affiche pas correctement 
+      a href==($mirorLink) target="_blank" style="color:#333333;"
+          strong
+           | consultez la version en ligne
