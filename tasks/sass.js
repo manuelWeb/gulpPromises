@@ -24,7 +24,7 @@ module.exports = function () {
       })
     ]).then(function () {
       console.log(`sass terminé run premailer sinon
-        pas de rendu HTML !!!`)
+pas de rendu HTML !!!`)
       gulp.start('premailer');
     })
   });
@@ -44,13 +44,14 @@ module.exports = function () {
     })
   });
   // prettify
-  gulp.task('prettify', function () {
+  gulp.task('prettify', function (event) {
     return Promise.all([
       new Promise(function (resolve, reject) {
         gulp.src('render/**/*.html')
         .pipe(prettify({indent_car:'', indent_size: 2}))
         .pipe(gulp.dest('render'))
         .on('end', resolve)
+        // .pipe(bs.reload(event.path))
         .pipe(bs.reload({stream: true }))
       })
     ]).then(function () {

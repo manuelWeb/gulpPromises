@@ -1,0 +1,21 @@
+$varbgcolor: #FFF;
+$vartxtcolor: #0078B8;
+
+body {width: 100%; margin: 0; line-height: 121%; background-color: $varbgcolor;}
+img {font-family: Arial, sans-serif; font-size: 16px;}
+table td {border-collapse: collapse;}
+td {line-height: 1px; font-size: 1px;}
+td font, td span{ line-height: normal;}
+td img {display: block; line-height: normal; }
+.w100 {width: 100%;}
+.bg-color {background-color: $varbgcolor;}
+.teaserText, .logo {font-family: Arial, sans-serif; font-weight: bold; font-size: 30px; text-align: center; line-height: 100%;}
+.logo {text-align: left; color: #E2144D;}
+.teaserText {font-size: 36px; line-height: 38px;color: $vartxtcolor; text-align: center;}
+.selBtn {font-size: 21px; line-height: 28px;color: $vartxtcolor; text-align: center;}
+.txtcenter {text-align: center;}
+.lh-100 {line-height: 100%;}
+.lh-130 {line-height: 130%;}
+.lh-150 {line-height: 150%;}
+.m0auto {margin: 0 auto;}
+.m0 {margin: 0;}

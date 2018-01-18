@@ -11,7 +11,6 @@ module.exports = function () {
         gulp.src(['src/**/slim/*.slim'])
         .pipe(slim())
         .on('error', reject)
-        // .pipe(gulp.dest('render')) // render/slim/ folder
         .pipe(rename(function(path) {
           path.dirname += "/../";
         }))

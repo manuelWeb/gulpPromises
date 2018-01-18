@@ -24,15 +24,18 @@ gulp.task('dev', function (cb) {
 
 // browser-sync task !attention index.html obligatoire
 gulp.task('bs',function () {
-  bs({
+  bs.init({
     server: {
-      baseDir: 'render/FR'
+      baseDir: 'render/FR',
+      index: 'index.html'
     }
   })
 });
 
 function reportChange(event){
-    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+  // console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+  // console.log("\x1b[30\x1b[47%s\x1b[0m", `File: ${event.path} was ${event.type}, running tasks...`);
+  console.log("\x1b[30m\x1b[43m%s\x1b[0m", `File: ${event.path} was ${event.type}, running tasks...`);
 }
 
 gulp.task('build', ['bs'], function () {
