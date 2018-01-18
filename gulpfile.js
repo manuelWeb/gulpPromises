@@ -36,8 +36,7 @@ gulp.task('bs',function () {
 //   console.log("\x1b[30m\x1b[43m%s\x1b[0m", `File: ${event.path} was ${event.type}, running tasks...`);
 // }
 const reportChange = (event) => {
-  console.log("\x1b[30m\x1b[43m%s\x1b[0m", `File: ${event.path} was ${event.type}, running tasks...`);
-  console.log(`le tout est de savoir quand cette ${event.type} se fini pour pas avoir d'erreur sur un double enregistrement!!!`);
+  console.log("\x1b[30m\x1b[43m%s\x1b[0m", `File: ${event.path}, type was ${event.type}, running tasks...`);
 };
 
 gulp.task('dev1',['img','slim'], function() {
@@ -47,12 +46,6 @@ gulp.task('dev1',['img','slim'], function() {
 
 gulp.task('build', ['bs'], function (cb) {
   gulp.watch(src+'**/images/*.{png,jpg,gif}',['img']).on('change', reportChange);
-  // gulp.watch(['source.json', src+'**/**/*.slim', src+'**/scss/*.scss'], ['slim'], function (event) {
-  gulp.watch(['source.json', src+'**/**/*.slim', src+'**/scss/*.scss'], function (event) {
-      var props = ""
-      for (prop in event){ props+= prop +  " => " +event[prop] + "\n"; }
-      console.log(`cb de watch style slim ... event : ${props} `);
-      gulp.start('slim')
-  }).on('change', reportChange);
+  gulp.watch(['source.json', src+'**/**/*.slim', src+'**/scss/*.scss'], ['slim']).on('change', reportChange);
 })
 
