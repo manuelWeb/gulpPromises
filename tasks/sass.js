@@ -23,34 +23,51 @@ module.exports = function () {
         .on('end', resolve)
       })
     ]).then(function () {
-      console.log(`sass terminé run premailer sinon pas de rendu HTML !!!`)
+      console.log(`sass terminé run premailer sinon
+        pas de rendu HTML !!!`)
       gulp.start('premailer');
     })
   });
-// premailer
-gulp.task('premailer', function () {
-  return Promise.all([
-    new Promise(function (resolve, reject) {
-      gulp.src('render/**/*.html')
-      .pipe(premailer())
-      .pipe(prettify({indent_car:'', indent_size: 2}))
-      .pipe(gulp.dest('render'))
-      .pipe(bs.reload({stream: true }))
-      .on('end', resolve)
+  // premailer
+  gulp.task('premailer', function () {
+    return Promise.all([
+      new Promise(function (resolve, reject) {
+        gulp.src('render/**/*.html')
+        .pipe(premailer())
+        .pipe(gulp.dest('render'))
+        // .pipe(bs.stream())
+        .on('end', resolve)
+      })
+    ]).then(function () {
+      console.log('premailer terminé run prettify + bs')
+      gulp.start('prettify');
     })
-  ]).then(function () {
-    console.log('premailer terminé run bs')
-  }).then(function () {
-    rimraf('./render/**/slim',function (err) {
-      console.log("all done del slim");
-    });
-    rimraf('./render/**/css',function (err) {
-      console.log("all done del css");
-    });
-  }).then(function () {
-    console.log('THE END!!!!!!!!!')
-  })
-});
+  });
+  // prettify
+  gulp.task('prettify', function () {
+    return Promise.all([
+      new Promise(function (resolve, reject) {
+        gulp.src('render/**/*.html')
+        .pipe(prettify({indent_car:'', indent_size: 2}))
+        .pipe(gulp.dest('render'))
+        .on('end', resolve)
+        .pipe(bs.reload({stream: true }))
+      })
+    ]).then(function () {
+      // bs.reload({stream: true })
+      console.log('prettify terminé destroyed slim + css folder')
+    }).then(function () {
+      rimraf('./render/**/slim',function (err) {
+        console.log("all done del slim");
+      });
+      rimraf('./render/**/css',function (err) {
+        console.log("all done del css");
+      });
+    }).then(function () {
+      console.log('THE END!!!!!!!!!')
+    })
+  });
+
 }
 
 // attention sass et dépendant de slim du fait de l'injection des styles en ligne de premailer et ce dans chaque country/index.html. Pour cette raison le watch de scss/**/*.scss est inclut au watch de slim.
