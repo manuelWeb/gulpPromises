@@ -35,8 +35,11 @@ function reportChange(event){
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 }
 
-gulp.task('dev1',['img','slim','sass','bs'], function() {
-  // outputs changes to files to the console
+gulp.task('build', ['bs'], function () {
   gulp.watch(src+'**/images/*.{png,jpg,gif}',['img']).on('change', reportChange);
   gulp.watch(['source.json', src+'**/**/*.slim', src+'**/scss/*.scss'], ['slim']).on('change', reportChange);
+})
+
+gulp.task('dev1',['img','slim'], function() {
+  gulp.start('build')
 });

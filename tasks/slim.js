@@ -20,7 +20,7 @@ module.exports = function () {
           var myregex = fileName.replace(/(.+?)\\.+/,"$1");
             // console.log('myregex ' + myregex + '\n fileName ' + fileName + '\n file.path ' + file.path)
           return stream
-          .pipe(bs.stream()) // cf premailer task
+          // .pipe(bs.stream()) // cf premailer task
         }))
         .pipe(gulp.dest('render')) // html folder
         .on('end', resolve)
