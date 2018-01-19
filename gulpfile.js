@@ -3,7 +3,7 @@ require("./tasks/slim.js")();
 require("./tasks/sass.js")();// lire note dependance sass.js
 require("./tasks/premailer.js")();
 require("./tasks/prettify.js")();
-// to disable>dest path replace fs
+// sys protection contre réécriture avant fin de slim,sass,premailer,prettify.
 var global_end = false;
 var gulp         = require('gulp'),
     bs           = require('browser-sync'),
@@ -44,7 +44,7 @@ gulp.task('dev1',['img','slim'], function() {
 });
 
 
-gulp.task('build', ['bs'], function (cb) {
+gulp.task('build', ['bs'], function () {
   gulp.watch(src+'**/images/*.{png,jpg,gif}',['img']).on('change', reportChange);
   gulp.watch(['source.json', src+'**/**/*.slim', src+'**/scss/*.scss'], ['slim']).on('change', reportChange);
 })
