@@ -2,13 +2,11 @@ var gulp         = require("gulp");
 var sass         = require('gulp-sass');
 var rename       = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
-var premailer    = require('gulp-premailer');
-var bs           = require('browser-sync');
-var prettify     = require('gulp-html-prettify');
-var rimraf       = require('rimraf');
+
 const mess = "premailer mais sans le rendu slim pas de preiview dans le browser"
 // Promise 
 module.exports = function () {
+
   gulp.task('sass', function() {
     // .pipe(bs.reload({stream: true }));
     return Promise.all([
@@ -26,46 +24,6 @@ module.exports = function () {
       console.log(`sass terminé run premailer sinon
 pas de rendu HTML !!!`)
       gulp.start('premailer');
-    })
-  });
-  // premailer
-  gulp.task('premailer', function () {
-    return Promise.all([
-      new Promise(function (resolve, reject) {
-        gulp.src('render/**/*.html')
-        .pipe(premailer())
-        .pipe(gulp.dest('render'))
-        // .pipe(bs.stream())
-        .on('end', resolve)
-      })
-    ]).then(function () {
-      console.log('premailer terminé run prettify + bs')
-      gulp.start('prettify');
-    })
-  });
-  // prettify
-  gulp.task('prettify', function (event) {
-    return Promise.all([
-      new Promise(function (resolve, reject) {
-        gulp.src('render/**/*.html')
-        .pipe(prettify({indent_car:'', indent_size: 2}))
-        .pipe(gulp.dest('render'))
-        .on('end', resolve)
-        // .pipe(bs.reload(event.path))
-        .pipe(bs.reload({stream: true }))
-      })
-    ]).then(function () {
-      // bs.reload({stream: true })
-      console.log('prettify terminé destroyed slim + css folder')
-    }).then(function () {
-      rimraf('./render/**/slim',function (err) {
-        console.log("all done del slim");
-      });
-      rimraf('./render/**/css',function (err) {
-        console.log("all done del css");
-      });
-    }).then(function () {
-      console.log('THE END!!!!!!!!!')
     })
   });
 

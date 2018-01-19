@@ -1,8 +1,10 @@
 require("./tasks/img.js")();
 require("./tasks/slim.js")();
-// lire la note sur dependance de sass cf sass.js
-require("./tasks/sass.js")();
+require("./tasks/sass.js")();// lire note dependance sass.js
+require("./tasks/premailer.js")();
+require("./tasks/prettify.js")();
 // to disable>dest path replace fs
+var global_end = false;
 var gulp         = require('gulp'),
     bs           = require('browser-sync'),
     plumber      = require('gulp-plumber'),
@@ -13,6 +15,7 @@ var gulp         = require('gulp'),
 
 // src & output
 var  src = 'src/';
+
 // delete old folder before start dev task
 gulp.task('dev', function (cb) {
   rimraf('./render', function cb () {
@@ -32,17 +35,14 @@ gulp.task('bs',function () {
   })
 });
 
-// function reportChange(event){
-//   console.log("\x1b[30m\x1b[43m%s\x1b[0m", `File: ${event.path} was ${event.type}, running tasks...`);
-// }
 const reportChange = (event) => {
-  console.log("\x1b[30m\x1b[43m%s\x1b[0m", `File: ${event.path}, type was ${event.type}, running tasks...`);
+  console.log("\x1b[30m\x1b[43m%s\x1b[0m", `File: ${event.path}, type was ${event.type}, running tasks... var global_end = ${global_end}`);
 };
 
 gulp.task('dev1',['img','slim'], function() {
-  gulp.start('build')
-  // , () => {console.log( `${build} à fini son job mec, je suis le cb de ce dernier` ); }
-})
+  gulp.start('build');
+});
+
 
 gulp.task('build', ['bs'], function (cb) {
   gulp.watch(src+'**/images/*.{png,jpg,gif}',['img']).on('change', reportChange);
