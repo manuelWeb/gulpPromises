@@ -4,7 +4,7 @@ require("./tasks/sass.js")();// lire note dependance sass.js
 require("./tasks/premailer.js")();
 require("./tasks/prettify.js")();
 // sys protection contre réécriture avant fin de slim,sass,premailer,prettify.
-var global_end = false;
+var global_end   = "";
 var gulp         = require('gulp'),
     bs           = require('browser-sync'),
     plumber      = require('gulp-plumber'),
@@ -36,7 +36,7 @@ gulp.task('bs',function () {
 });
 
 const reportChange = (event) => {
-  console.log("\x1b[30m\x1b[43m%s\x1b[0m", `File: ${event.path}, type was ${event.type}, running tasks... var global_end = ${global_end}`);
+  console.log("\x1b[30m\x1b[43m%s\x1b[0m", `File: ${event.path}, type was ${event.type}, running tasks...`);
 };
 
 gulp.task('dev1',['img','slim'], function() {
@@ -45,7 +45,16 @@ gulp.task('dev1',['img','slim'], function() {
 
 
 gulp.task('build', ['bs'], function () {
-  gulp.watch(src+'**/images/*.{png,jpg,gif}',['img']).on('change', reportChange);
+
   gulp.watch(['source.json', src+'**/**/*.slim', src+'**/scss/*.scss'], ['slim']).on('change', reportChange);
+  gulp.watch(src+'**/images/*.{png,jpg,gif}',['img']).on('change', reportChange);
 })
 
+  // gulp.watch(['source.json', src+'**/**/*.slim', src+'**/scss/*.scss'], function testForCondition () {
+  //     if (global_end) {
+  //       gulp.start('slim');
+  //     } else {
+  //       console.log('setTimeout...1sc before testForCondition')
+  //       setTimeout(testForCondition, 1000);
+  //     }
+  //   }).on('change', reportChange);

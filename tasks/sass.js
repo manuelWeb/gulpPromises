@@ -3,12 +3,10 @@ var sass         = require('gulp-sass');
 var rename       = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
 
-const mess = "premailer mais sans le rendu slim pas de preiview dans le browser"
 // Promise 
 module.exports = function () {
 
   gulp.task('sass', function() {
-    // .pipe(bs.reload({stream: true }));
     return Promise.all([
       new Promise(function (resolve, reject) {
         gulp.src('src/**/scss/*.scss')

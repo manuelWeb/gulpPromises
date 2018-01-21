@@ -14,7 +14,8 @@ module.exports = function () {
         .pipe(gulp.dest('render'))
         .on('end', resolve)
         // .pipe(bs.reload(event.path))
-        .pipe(bs.reload({stream: true }))
+        // .pipe(bs.reload({stream: true }))
+        .pipe(bs.stream({ once: true }))
       })
     ]).then(function () {
       // bs.reload({stream: true })
@@ -27,8 +28,7 @@ module.exports = function () {
         console.log("all done del css");
       });
     }).then(function () {
-      global_end = true;
-      console.log(` THE END!!!!!!!!! var global_end = ${global_end} ` );
+      console.log(` THE END!!!!!!!!! ` );
     })
   });
 

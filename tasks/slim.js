@@ -25,7 +25,8 @@ module.exports = function () {
         .on('end', resolve)
       })
     ]).then(function () {
-      console.log('slim terminé run sass');
+      // console.log(` slim terminé run sass global_end:${global_end} `);
+      console.log(` slim terminé run sass `);
       gulp.start('sass');
     })
   });
